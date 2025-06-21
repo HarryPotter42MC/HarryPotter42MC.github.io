@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thorben | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="container nav-container">
+      <a href="https://harrypotter42mc.github.io/index.html" class="logo">Thorben</a>
+      <ul class="nav-links">
+        <button class="darkmode-toggle" id="darkmode-toggle" aria-label="Toggle dark mode">
+          <span id="darkmode-icon" aria-hidden="true">🌙</span>
+        </button>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a>Log in</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Welcome to <span class="highlight">Weighly</span></h1>
+        <p>The very best weight tracker on the internet. 
+            Maybe the best there will ever be.</p>
+        <a href="#" class="btn">Start Tracking</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Thorben. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Dark mode toggle logic
+    const toggle = document.getElementById('darkmode-toggle');
+    const icon = document.getElementById('darkmode-icon');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+
+    function setTheme(dark) {
+      if (dark) {
+        document.body.classList.add('darkmode');
+        icon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('darkmode');
+        icon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Initial theme
+    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+      setTheme(true);
+    } else {
+      setTheme(false);
+    }
+
+    toggle.addEventListener('click', () => {
+      setTheme(!document.body.classList.contains('darkmode'));
+    });
+  </script>
+</body>
+</html>
