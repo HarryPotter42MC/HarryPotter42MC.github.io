@@ -10,6 +10,7 @@ body {
   background: #f6f8fa;
   color: #222;
   line-height: 1.7;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Container */
@@ -78,11 +79,30 @@ nav {
   width: 100%;
 }
 
+/* Darkmode Toggle Button */
+.darkmode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  margin-left: 2rem;
+  cursor: pointer;
+  color: #222;
+  transition: color 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.darkmode-toggle:hover {
+  color: #2563eb;
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(120deg, #2563eb 0%, #60a5fa 100%);
   color: #fff;
   padding: 4rem 0 3rem 0;
+  transition: background 0.3s, color 0.3s;
 }
 
 .hero-content {
@@ -153,6 +173,7 @@ nav {
 .about {
   background: #fff;
   padding: 4rem 0 3rem 0;
+  transition: background 0.3s, color 0.3s;
 }
 
 .about-content {
@@ -182,6 +203,7 @@ nav {
 .projects {
   background: #f6f8fa;
   padding: 4rem 0 3rem 0;
+  transition: background 0.3s, color 0.3s;
 }
 
 .projects h2 {
@@ -210,7 +232,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.3s, color 0.3s;
 }
 
 .project-card:hover {
@@ -248,6 +270,7 @@ nav {
   background: #fff;
   padding: 4rem 0 3rem 0;
   text-align: center;
+  transition: background 0.3s, color 0.3s;
 }
 
 .contact-content h2 {
@@ -276,6 +299,113 @@ footer {
   margin-top: 0;
   font-size: 1rem;
   letter-spacing: 0.5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* DARK MODE */
+body.darkmode {
+  background: #181a1b;
+  color: #e5e7eb;
+}
+
+body.darkmode nav {
+  background: #23272f;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+body.darkmode .logo {
+  color: #60a5fa;
+}
+
+body.darkmode .nav-links a {
+  color: #e5e7eb;
+}
+
+body.darkmode .nav-links a:hover {
+  color: #60a5fa;
+}
+
+body.darkmode .nav-links a::after {
+  background: #60a5fa;
+}
+
+body.darkmode .darkmode-toggle {
+  color: #e5e7eb;
+}
+
+body.darkmode .darkmode-toggle:hover {
+  color: #60a5fa;
+}
+
+body.darkmode .hero {
+  background: linear-gradient(120deg, #23272f 0%, #2563eb 100%);
+  color: #e5e7eb;
+}
+
+body.darkmode .hero-img img {
+  border-color: #23272f;
+  background: #23272f;
+}
+
+body.darkmode .btn,
+body.darkmode .contact-btn {
+  background: #23272f;
+  color: #60a5fa;
+  box-shadow: 0 2px 8px rgba(96,165,250,0.08);
+}
+
+body.darkmode .btn:hover,
+body.darkmode .contact-btn:hover {
+  background: #60a5fa;
+  color: #23272f;
+}
+
+body.darkmode .about,
+body.darkmode .contact {
+  background: #23272f;
+  color: #e5e7eb;
+}
+
+body.darkmode .about-text h2,
+body.darkmode .projects h2,
+body.darkmode .contact-content h2 {
+  color: #60a5fa;
+}
+
+body.darkmode .about-text p,
+body.darkmode .contact-content p {
+  color: #b3b8c2;
+}
+
+body.darkmode .projects {
+  background: #181a1b;
+}
+
+body.darkmode .project-card {
+  background: #23272f;
+  color: #e5e7eb;
+  box-shadow: 0 2px 16px rgba(96,165,250,0.06);
+}
+
+body.darkmode .project-card h3 {
+  color: #e5e7eb;
+}
+
+body.darkmode .project-card p {
+  color: #b3b8c2;
+}
+
+body.darkmode .project-link {
+  color: #60a5fa;
+}
+
+body.darkmode .project-link:hover {
+  color: #a7f3d0;
+}
+
+body.darkmode footer {
+  background: #23272f;
+  color: #b3b8c2;
 }
 
 /* Responsive Design */
