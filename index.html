@@ -9,11 +9,11 @@
     <style>
         /* CSS VARIABLEN FÜR DAS LIGHT THEME */
         :root {
-            --bg-main: #fbfbfd; 
+            --bg-main: #fbfbfd;
             --bg-card: #ffffff;
-            --text-dark: #1d1d1f; 
-            --text-muted: #86868b; 
-            --accent-gold: #c59b5f; 
+            --text-dark: #1d1d1f;
+            --text-muted: #86868b;
+            --accent-gold: #c59b5f;
             --accent-gold-hover: #b0874e;
             --border-light: #d2d2d7;
             --danger-red: #ff3b30;
@@ -43,12 +43,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255,255,255,0.8);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(128,128,128,0.1);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .logo-container {
@@ -98,6 +98,67 @@
             background-color: var(--accent-gold);
             transform: scale(1.02);
         }
+
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .hamburger:hover { background: rgba(128,128,128,0.12); }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* MOBILE NAV DRAWER */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 5%;
+            flex-direction: column;
+            gap: 18px;
+            z-index: 999;
+            transition: background 0.3s;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* CART OVERLAY */
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1999;
+            backdrop-filter: blur(2px);
+        }
+        .cart-overlay.open { display: block; }
 
         /* HERO / PRODUKT SECTION (BILD LINKS, TEXT RECHTS) */
         .hero {
@@ -356,7 +417,7 @@
             right: -100%;
             width: 400px;
             height: 100vh;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             box-shadow: -10px 0 40px rgba(0,0,0,0.1);
@@ -478,15 +539,14 @@
         @media (max-width: 900px) {
             .hero { padding-top: 120px; }
             .hero-content {
-                flex-direction: column-reverse; 
+                flex-direction: column-reverse;
                 text-align: center;
             }
-            .hero-text {
-                align-items: center; 
-            }
+            .hero-text { align-items: center; }
             .hero-text h1 { font-size: 3rem; }
             .hero-text p { margin: 0 auto 30px; }
             .nav-links { display: none; }
+            .hamburger { display: flex; }
             .specs-container { grid-template-columns: 1fr; }
             .cart-sidebar { width: 100%; padding: 20px; }
         }
@@ -497,7 +557,6 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="logo-container">
-            <!-- Pures Text-Logo, da Bilddatei fehlt -->
             <span class="logo-text">HARRISON CORP.</span>
         </div>
         <div class="nav-links">
@@ -505,8 +564,23 @@
             <a href="#specs">Technik</a>
             <a href="#guarantee">Garantie</a>
         </div>
-        <button class="btn-buy open-cart-btn">Kaufen</button>
+        <div style="display:flex;align-items:center;gap:4px;">
+            <button class="btn-buy open-cart-btn">Kaufen</button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menü">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </nav>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#safety" class="mobile-nav-link">Sicherheit</a>
+        <a href="#specs" class="mobile-nav-link">Technik</a>
+        <a href="#guarantee" class="mobile-nav-link">Garantie</a>
+    </div>
+
+    <!-- CART OVERLAY -->
+    <div class="cart-overlay" id="cartOverlay"></div>
 
     <!-- WARENKORB SIDEBAR -->
     <div class="cart-sidebar" id="cartSidebar">
@@ -629,37 +703,45 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Warenkorb Logik
+        // ── WARENKORB ──
         const cartSidebar = document.getElementById('cartSidebar');
+        const cartOverlay  = document.getElementById('cartOverlay');
         const openCartBtns = document.querySelectorAll('.open-cart-btn');
         const closeCartBtn = document.getElementById('closeCartBtn');
 
-        openCartBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                cartSidebar.classList.add('open');
+        function openCart()  { cartSidebar.classList.add('open');  cartOverlay.classList.add('open'); }
+        function closeCart() { cartSidebar.classList.remove('open'); cartOverlay.classList.remove('open'); }
+
+        openCartBtns.forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); openCart(); }));
+        closeCartBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+
+        // ── HAMBURGER MENU ──
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav    = document.getElementById('mobileNav');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('open');
+                mobileNav.classList.remove('open');
             });
         });
 
-        closeCartBtn.addEventListener('click', () => {
-            cartSidebar.classList.remove('open');
-        });
-
-        // Scroll Reveal Animation
+        // ── SCROLL REVEAL ──
         function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
                 }
-            }
+            });
         }
 
-        window.addEventListener("scroll", reveal);
+        window.addEventListener('scroll', reveal);
         reveal();
     </script>
 </body>
