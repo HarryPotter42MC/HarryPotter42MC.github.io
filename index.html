@@ -202,10 +202,9 @@
         }
         .cart-item img {
             width: 90px; height: 90px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 16px;
             background: var(--green-50);
-            mix-blend-mode: multiply;
         }
         .cart-item-details h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
 
@@ -296,8 +295,7 @@
         .hero-image img {
             max-width: 420px;
             width: 100%;
-            mix-blend-mode: screen;
-            filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5)) brightness(1.1);
+            filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5));
             transition: transform 0.6s ease;
         }
         .hero-image img:hover { transform: scale(1.04) translateY(-8px); }
