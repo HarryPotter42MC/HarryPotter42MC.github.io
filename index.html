@@ -615,6 +615,41 @@
             letter-spacing: 0.03em;
         }
 
+        /* ── TEAM MOBILITÄT ──────────────────────────── */
+        .team-section {
+            background: var(--white);
+            border-top: 1px solid var(--green-100);
+        }
+
+        .section-intro {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 580px;
+            margin: 16px auto 0;
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .team-hint {
+            text-align: center;
+            margin-top: 56px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .team-hint a {
+            color: var(--green-600);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--green-200);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .team-hint a:hover { color: var(--green-800); border-color: var(--green-400); }
+
         /* ── REVEAL ──────────────────────────────────── */
         .reveal {
             opacity: 0;
@@ -786,6 +821,39 @@
                 <p>Von der ersten Schraube bis zum Verpackungskarton. Alle Materialien sind zertifiziert nachhaltig beschafft und vollständig rückverfolgbar.</p>
             </div>
         </div>
+    </section>
+
+    <!-- TEAM & MOBILITÄT -->
+    <section class="eco-section team-section">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Unser Team</span>
+            <h2 class="section-title">Nachhaltigkeit<br>beginnt bei uns.</h2>
+            <p class="section-intro">Unsere Werte hören nicht an der Produktionslinie auf. Wir fördern nachhaltige Mobilität – für unser ganzes Team.</p>
+        </div>
+        <div class="eco-grid">
+            <div class="eco-card reveal">
+                <div class="card-icon">🚗</div>
+                <div class="eco-stat">15 %</div>
+                <div class="eco-stat-sub">E-Mobilität</div>
+                <h3>Rabatt auf E-Autos</h3>
+                <p>Rahmenverträge mit Mercedes, BMW und Audi ermöglichen unseren Mitarbeitenden 15 % Rabatt auf E-Autos und Leasing.</p>
+            </div>
+            <div class="eco-card reveal">
+                <div class="card-icon">⚡</div>
+                <div class="eco-stat">10</div>
+                <div class="eco-stat-sub">Ladepunkte</div>
+                <h3>Kostenlose Wallboxen</h3>
+                <p>Direkt am Arbeitsplatz laden – kostenlos. 10 Ladepunkte auf unserem Mitarbeiterparkplatz stehen täglich zur Verfügung.</p>
+            </div>
+            <div class="eco-card reveal">
+                <div class="card-icon">🎫</div>
+                <div class="eco-stat">50 %</div>
+                <div class="eco-stat-sub">Deutschlandticket</div>
+                <h3>ÖPNV für alle</h3>
+                <p>Wir übernehmen die Hälfte. Weil öffentlicher Nahverkehr die Zukunft ist – und wir das nicht nur sagen, sondern zahlen.</p>
+            </div>
+        </div>
+        <p class="team-hint reveal">Du möchtest Teil des Teams werden? <a href="mailto:jobs@harrisoncorp.de">Schreib uns.</a></p>
     </section>
 
     <!-- SPECS -->
