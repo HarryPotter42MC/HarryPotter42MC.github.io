@@ -769,6 +769,14 @@
         }
         .footer-links a:hover { color: rgba(255,255,255,0.65); }
 
+        /* ── NAV MARKETING LINK ──────────────────────── */
+        .nav-divider {
+            color: var(--green-300);
+            font-weight: 300;
+            user-select: none;
+        }
+        .nav-marketing { color: var(--green-600) !important; font-weight: 600 !important; }
+
         /* ── RESPONSIVE ──────────────────────────────── */
         @media (max-width: 900px) {
             .hero { padding-top: 120px; background-attachment: scroll; }
@@ -799,6 +807,8 @@
             <a href="#eco">Nachhaltigkeit</a>
             <a href="#specs">Technik</a>
             <a href="#pledge">Versprechen</a>
+            <span class="nav-divider">|</span>
+            <a href="marketing.html" class="nav-marketing">Marketing</a>
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
             <button class="btn-buy open-cart-btn">Kaufen</button>
@@ -813,6 +823,7 @@
         <a href="#eco" class="mobile-nav-link">Nachhaltigkeit</a>
         <a href="#specs" class="mobile-nav-link">Technik</a>
         <a href="#pledge" class="mobile-nav-link">Versprechen</a>
+        <a href="marketing.html" class="mobile-nav-link nav-marketing">Marketing</a>
     </div>
 
     <!-- CART OVERLAY -->

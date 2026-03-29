@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARRISON CORP. | Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-900: #0a1f13;
+            --green-800: #1a3d2b;
+            --green-700: #2d6a4f;
+            --green-600: #40916c;
+            --green-500: #52b788;
+            --green-400: #74c69d;
+            --green-300: #95d5b2;
+            --green-200: #b7e4c7;
+            --green-100: #d8f3dc;
+            --green-50:  #f0f9f3;
+            --white:     #ffffff;
+            --text-dark: #0d1b12;
+            --text-muted:#52796f;
+            --border:    #b7e4c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--green-50);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ─────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 5%;
+            background: rgba(240, 249, 243, 0.88);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(183, 228, 199, 0.6);
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--green-800);
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .logo-eco {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3.5px;
+            color: var(--green-600);
+            text-transform: uppercase;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: var(--green-800);
+            border: 1.5px solid var(--green-300);
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-back:hover {
+            background: var(--green-100);
+            border-color: var(--green-400);
+        }
+
+        /* ── HERO ────────────────────────────────────── */
+        .hero {
+            padding: 160px 5% 100px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-600);
+            background: var(--green-100);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            color: var(--green-900);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── VIDEO ───────────────────────────────────── */
+        .video-section {
+            padding: 0 5% 100px;
+        }
+
+        .video-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 16px 64px rgba(10, 31, 19, 0.18);
+            display: block;
+            background: var(--green-900);
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── GALLERY ─────────────────────────────────── */
+        .gallery-section {
+            padding: 80px 5%;
+            background: var(--white);
+            border-top: 1px solid var(--green-100);
+            border-bottom: 1px solid var(--green-100);
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--green-900);
+            margin-bottom: 56px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            gap: 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(10, 31, 19, 0.1);
+        }
+
+        .gallery-item .gallery-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── PROMISES ────────────────────────────────── */
+        .promises-section {
+            padding: 100px 5%;
+        }
+
+        .promises-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .promises-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--green-900);
+            margin-top: 16px;
+        }
+
+        .promises-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .promise-card {
+            background: var(--white);
+            border: 1px solid var(--green-100);
+            border-radius: 20px;
+            padding: 36px;
+        }
+
+        .promise-card-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-500);
+            margin-bottom: 10px;
+        }
+
+        .promise-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--green-900);
+            margin-bottom: 20px;
+        }
+
+        .promise-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .promise-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .promise-list li::before {
+            content: "✓";
+            color: var(--green-500);
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── FOOTER ──────────────────────────────────── */
+        footer {
+            background: var(--green-900);
+            text-align: center;
+            padding: 44px 20px;
+            color: rgba(255,255,255,0.35);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── REVEAL ──────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width: 900px) {
+            .gallery-grid { flex-direction: column; max-width: 400px; }
+            .promises-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding-top: 120px; }
+            .promise-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div>
+            <span class="logo-text">Harrison Corp.</span>
+            <span class="logo-eco">ECO Collection</span>
+        </div>
+        <a href="index.html" class="btn-back">← Zurück zur Website</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <span class="section-eyebrow">Kampagne 2025</span>
+        <h1>Wie wir Nachhaltigkeit<br>vermarkten.</h1>
+        <p>Ein Überblick über unsere diesjährige Marketingkampagne – von der Produktkommunikation bis zu unseren Nachhaltigkeitsversprechen.</p>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="video-section">
+        <div class="video-wrapper reveal">
+            <video controls preload="metadata">
+                <source src="VideoNachhaltigkeit.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">ECO Smartwatch — Nachhaltigkeitskampagne 2025</p>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+        <h2 class="reveal">Produkt &amp; Verpackung</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="BOXzu.jpeg" alt="Verpackung geschlossen">
+                <span class="gallery-label">Verpackung geschlossen</span>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="ECOwatch.png" alt="ECO Smartwatch">
+                <span class="gallery-label">ECO Smartwatch</span>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="BOXauf.jpeg" alt="Verpackung geöffnet">
+                <span class="gallery-label">Verpackung geöffnet</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMISES -->
+    <section class="promises-section">
+        <div class="promises-header reveal">
+            <span class="section-eyebrow">Unsere Versprechen</span>
+            <h2>Was wir kommunizieren.<br>Was wir halten.</h2>
+        </div>
+        <div class="promises-grid">
+
+            <div class="promise-card reveal">
+                <div class="promise-card-eyebrow">Produkt</div>
+                <h3>Qualität ohne Kompromiss</h3>
+                <ul class="promise-list">
+                    <li>Gehäuse aus Luftfahrt-Titan (Grade 5)</li>
+                    <li>Kratzfestes Saphirglas-Display</li>
+                    <li>100 m wasserdicht (EN13319 zertifiziert)</li>
+                    <li>Akku bis zu 36 Std. normal / 72 Std. im Alpin-Modus</li>
+                    <li>Betriebstemperatur −20 °C bis 55 °C</li>
+                    <li>LTE, WLAN, Bluetooth 5.3</li>
+                </ul>
+            </div>
+
+            <div class="promise-card reveal">
+                <div class="promise-card-eyebrow">Nachhaltigkeit</div>
+                <h3>Echt grün – kein Greenwashing</h3>
+                <ul class="promise-list">
+                    <li>100 % Ökostrom in der Produktion</li>
+                    <li>1 Uhr = 1 Baum – echter Wald, kein CO₂-Offset</li>
+                    <li>100 % zertifiziert nachhaltige Materialien</li>
+                    <li>CO₂-bewusste Lieferkette, vollständig rückverfolgbar</li>
+                    <li>Verpackung aus 100 % recyceltem Karton</li>
+                    <li>Plastikfreie Verpackung, komplett kompostierbar</li>
+                </ul>
+            </div>
+
+            <div class="promise-card reveal">
+                <div class="promise-card-eyebrow">Garantie &amp; Service</div>
+                <h3>Langfristig an deiner Seite</h3>
+                <ul class="promise-list">
+                    <li>3 Jahre Garantie auf alle technischen Defekte</li>
+                    <li>Sofortiger Ersatz bei berechtigtem Defekt</li>
+                    <li>Bei jedem Garantiefall wird ein zusätzlicher Baum gepflanzt</li>
+                    <li>Kein Greenwashing – alle Versprechen sind belegbar</li>
+                </ul>
+            </div>
+
+            <div class="promise-card reveal">
+                <div class="promise-card-eyebrow">Team &amp; Intern</div>
+                <h3>Nachhaltigkeit beginnt bei uns</h3>
+                <ul class="promise-list">
+                    <li>15 % Mitarbeiterrabatt auf E-Autos (Mercedes, BMW, Audi)</li>
+                    <li>10 kostenlose Wallboxen am Unternehmensstandort</li>
+                    <li>50 % Übernahme des Deutschlandtickets für alle Mitarbeitenden</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 Harrison Corp. — ECO Collection
+    </footer>
+
+    <script>
+        function reveal() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+</body>
+</html>
