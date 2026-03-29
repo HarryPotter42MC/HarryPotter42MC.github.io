@@ -207,77 +207,96 @@
 
         /* ── PROMISES ────────────────────────────────── */
         .promises-section {
+            background: var(--green-900);
             padding: 100px 5%;
         }
 
         .promises-header {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 72px;
+        }
+
+        .promises-header .section-eyebrow {
+            background: rgba(255,255,255,0.08);
+            color: var(--green-300);
         }
 
         .promises-header h2 {
             font-size: clamp(1.8rem, 3vw, 2.6rem);
             font-weight: 800;
             letter-spacing: -0.03em;
-            color: var(--green-900);
+            color: var(--white);
             margin-top: 16px;
         }
 
-        .promises-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-            max-width: 1000px;
+        .promises-rows {
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .promise-card {
-            background: var(--white);
-            border: 1px solid var(--green-100);
-            border-radius: 20px;
-            padding: 36px;
-        }
-
-        .promise-card-eyebrow {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--green-500);
-            margin-bottom: 10px;
-        }
-
-        .promise-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--green-900);
-            margin-bottom: 20px;
-        }
-
-        .promise-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .promise-list li {
+        .promise-row {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+            gap: 48px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
 
-        .promise-list li::before {
-            content: "✓";
-            color: var(--green-500);
-            font-weight: 700;
-            font-size: 0.85rem;
+        .promise-row:last-child {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .promise-row-label {
             flex-shrink: 0;
-            margin-top: 1px;
+            width: 220px;
+        }
+
+        .promise-row-num {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--green-500);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .promise-row-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .promise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-top: 4px;
+        }
+
+        .promise-tag {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.75);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 100px;
+            line-height: 1;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .promise-tag:hover {
+            background: rgba(82,183,136,0.15);
+            border-color: var(--green-500);
+            color: var(--green-300);
+        }
+
+        @media (max-width: 900px) {
+            .promise-row { flex-direction: column; gap: 20px; }
+            .promise-row-label { width: 100%; }
         }
 
         /* ── FOOTER ──────────────────────────────────── */
@@ -376,40 +395,49 @@
             <span class="section-eyebrow">Unsere Versprechen</span>
             <h2>Was wir kommunizieren.<br>Was wir halten.</h2>
         </div>
-        <div class="promises-grid">
+        <div class="promises-rows">
 
-            <div class="promise-card reveal">
-                <div class="promise-card-eyebrow">Nachhaltigkeit</div>
-                <h3>Echt grün – kein Greenwashing</h3>
-                <ul class="promise-list">
-                    <li>100 % Ökostrom in der Produktion</li>
-                    <li>1 Uhr = 1 Baum – echter Wald, kein CO₂-Offset</li>
-                    <li>100 % zertifiziert nachhaltige Materialien</li>
-                    <li>CO₂-bewusste Lieferkette, vollständig rückverfolgbar</li>
-                    <li>Verpackung aus 100 % recyceltem Karton</li>
-                    <li>Plastikfreie Verpackung, komplett kompostierbar</li>
-                </ul>
+            <div class="promise-row reveal">
+                <div class="promise-row-label">
+                    <span class="promise-row-num">01 — Nachhaltigkeit</span>
+                    <span class="promise-row-title">Echt grün.<br>Kein Greenwashing.</span>
+                </div>
+                <div class="promise-tags">
+                    <span class="promise-tag">100 % Ökostrom</span>
+                    <span class="promise-tag">1 Uhr = 1 Baum</span>
+                    <span class="promise-tag">Echter Wald, kein CO₂-Offset</span>
+                    <span class="promise-tag">100 % nachhaltige Materialien</span>
+                    <span class="promise-tag">CO₂-bewusste Lieferkette</span>
+                    <span class="promise-tag">Vollständig rückverfolgbar</span>
+                    <span class="promise-tag">100 % recycelter Karton</span>
+                    <span class="promise-tag">Plastikfrei &amp; kompostierbar</span>
+                </div>
             </div>
 
-            <div class="promise-card reveal">
-                <div class="promise-card-eyebrow">Garantie &amp; Service</div>
-                <h3>Langfristig an deiner Seite</h3>
-                <ul class="promise-list">
-                    <li>3 Jahre Garantie auf alle technischen Defekte</li>
-                    <li>Sofortiger Ersatz bei berechtigtem Defekt</li>
-                    <li>Bei jedem Garantiefall wird ein zusätzlicher Baum gepflanzt</li>
-                    <li>Kein Greenwashing – alle Versprechen sind belegbar</li>
-                </ul>
+            <div class="promise-row reveal">
+                <div class="promise-row-label">
+                    <span class="promise-row-num">02 — Garantie &amp; Service</span>
+                    <span class="promise-row-title">Langfristig<br>an deiner Seite.</span>
+                </div>
+                <div class="promise-tags">
+                    <span class="promise-tag">3 Jahre Garantie</span>
+                    <span class="promise-tag">Sofortiger Ersatz bei Defekt</span>
+                    <span class="promise-tag">+1 Baum pro Garantiefall</span>
+                    <span class="promise-tag">Alle Versprechen belegbar</span>
+                </div>
             </div>
 
-            <div class="promise-card reveal">
-                <div class="promise-card-eyebrow">Team &amp; Intern</div>
-                <h3>Nachhaltigkeit beginnt bei uns</h3>
-                <ul class="promise-list">
-                    <li>15 % Mitarbeiterrabatt auf E-Autos (Mercedes, BMW, Audi)</li>
-                    <li>10 kostenlose Wallboxen am Unternehmensstandort</li>
-                    <li>50 % Übernahme des Deutschlandtickets für alle Mitarbeitenden</li>
-                </ul>
+            <div class="promise-row reveal">
+                <div class="promise-row-label">
+                    <span class="promise-row-num">03 — Team &amp; Intern</span>
+                    <span class="promise-row-title">Nachhaltigkeit<br>beginnt bei uns.</span>
+                </div>
+                <div class="promise-tags">
+                    <span class="promise-tag">15 % Rabatt auf E-Autos</span>
+                    <span class="promise-tag">Mercedes · BMW · Audi</span>
+                    <span class="promise-tag">10 kostenlose Wallboxen</span>
+                    <span class="promise-tag">50 % Deutschlandticket</span>
+                </div>
             </div>
 
         </div>
