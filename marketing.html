@@ -91,7 +91,7 @@
 
         /* ── HERO ────────────────────────────────────── */
         .hero {
-            padding: 160px 5% 100px;
+            padding: 110px 5% 60px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
@@ -133,7 +133,7 @@
         }
 
         .video-wrapper {
-            max-width: 960px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -289,6 +289,19 @@
             font-size: 0.82rem;
             letter-spacing: 0.05em;
         }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 14px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.25);
+            text-decoration: none;
+            font-size: 0.78rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.65); }
 
         /* ── REVEAL ──────────────────────────────────── */
         .reveal {
@@ -323,7 +336,7 @@
 
     <!-- HERO -->
     <section class="hero">
-        <span class="section-eyebrow">Kampagne 2025</span>
+        <span class="section-eyebrow">Kampagne — Geschäftsjahr 2</span>
         <h1>Wie wir Nachhaltigkeit<br>vermarkten.</h1>
         <p>Ein Überblick über unsere diesjährige Marketingkampagne – von der Produktkommunikation bis zu unseren Nachhaltigkeitsversprechen.</p>
     </section>
@@ -334,7 +347,7 @@
             <video controls preload="metadata">
                 <source src="VideoNachhaltigkeit.mp4" type="video/mp4">
             </video>
-            <p class="video-caption">ECO Smartwatch — Nachhaltigkeitskampagne 2025</p>
+            <p class="video-caption">ECO Smartwatch — Nachhaltigkeitskampagne 2026</p>
         </div>
     </section>
 
@@ -364,19 +377,6 @@
             <h2>Was wir kommunizieren.<br>Was wir halten.</h2>
         </div>
         <div class="promises-grid">
-
-            <div class="promise-card reveal">
-                <div class="promise-card-eyebrow">Produkt</div>
-                <h3>Qualität ohne Kompromiss</h3>
-                <ul class="promise-list">
-                    <li>Gehäuse aus Luftfahrt-Titan (Grade 5)</li>
-                    <li>Kratzfestes Saphirglas-Display</li>
-                    <li>100 m wasserdicht (EN13319 zertifiziert)</li>
-                    <li>Akku bis zu 36 Std. normal / 72 Std. im Alpin-Modus</li>
-                    <li>Betriebstemperatur −20 °C bis 55 °C</li>
-                    <li>LTE, WLAN, Bluetooth 5.3</li>
-                </ul>
-            </div>
 
             <div class="promise-card reveal">
                 <div class="promise-card-eyebrow">Nachhaltigkeit</div>
@@ -417,7 +417,12 @@
 
     <!-- FOOTER -->
     <footer>
-        &copy; 2025 Harrison Corp. — ECO Collection
+        <p>© 2026 HARRISON CORP. ECO Collection.</p>
+        <div class="footer-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
     </footer>
 
     <script>
