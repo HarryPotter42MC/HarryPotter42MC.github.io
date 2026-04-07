@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARRISON CORP. | Maritime Watch</title>
+    <title>HARRISON CORP. | ECO Smartwatch</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue-900: #071828;
-            --blue-800: #0d2b45;
-            --blue-700: #1a4f7a;
-            --blue-600: #1e74a8;
-            --blue-500: #2196c4;
-            --blue-400: #4db8d8;
-            --blue-300: #7dd3e8;
-            --blue-200: #b0e8f5;
-            --blue-100: #d6f5fc;
-            --blue-50:  #eefafd;
-            --white:    #ffffff;
-            --text-dark: #071828;
-            --text-muted:#4a7a96;
-            --border:    #b0e8f5;
+            --green-900: #0a1f13;
+            --green-800: #1a3d2b;
+            --green-700: #2d6a4f;
+            --green-600: #40916c;
+            --green-500: #52b788;
+            --green-400: #74c69d;
+            --green-300: #95d5b2;
+            --green-200: #b7e4c7;
+            --green-100: #d8f3dc;
+            --green-50:  #f0f9f3;
+            --white:     #ffffff;
+            --text-dark: #0d1b12;
+            --text-muted:#52796f;
+            --border:    #b7e4c7;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--blue-50);
+            background-color: var(--green-50);
             color: var(--text-dark);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -42,10 +42,10 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 5%;
-            background: rgba(238, 250, 253, 0.88);
+            background: rgba(240, 249, 243, 0.88);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(176, 232, 245, 0.6);
+            border-bottom: 1px solid rgba(183, 228, 199, 0.6);
             z-index: 1000;
         }
 
@@ -53,16 +53,16 @@
             font-size: 17px;
             font-weight: 800;
             letter-spacing: 2px;
-            color: var(--blue-800);
+            color: var(--green-800);
             text-transform: uppercase;
             display: block;
         }
 
-        .logo-sub {
+        .logo-eco {
             font-size: 10px;
             font-weight: 500;
             letter-spacing: 3.5px;
-            color: var(--blue-600);
+            color: var(--green-600);
             text-transform: uppercase;
             display: block;
             margin-top: 2px;
@@ -77,10 +77,10 @@
             letter-spacing: 0.02em;
             transition: color 0.25s;
         }
-        .nav-links a:hover { color: var(--blue-800); }
+        .nav-links a:hover { color: var(--green-800); }
 
         .btn-buy {
-            background-color: var(--blue-800);
+            background-color: var(--green-800);
             color: #fff;
             padding: 10px 24px;
             border: none;
@@ -91,7 +91,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .btn-buy:hover { background-color: var(--blue-700); transform: scale(1.02); }
+        .btn-buy:hover { background-color: var(--green-700); transform: scale(1.02); }
 
         /* ── HAMBURGER ───────────────────────────────── */
         .hamburger {
@@ -105,12 +105,12 @@
             border-radius: 8px;
             transition: background 0.2s;
         }
-        .hamburger:hover { background: rgba(26, 79, 122, 0.08); }
+        .hamburger:hover { background: rgba(45, 106, 79, 0.08); }
         .hamburger span {
             display: block;
             width: 22px;
             height: 2px;
-            background: var(--blue-800);
+            background: var(--green-800);
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -125,7 +125,7 @@
             top: 61px;
             left: 0;
             width: 100%;
-            background: rgba(238, 250, 253, 0.97);
+            background: rgba(240, 249, 243, 0.97);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -147,7 +147,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(7, 24, 40, 0.5);
+            background: rgba(10, 31, 19, 0.5);
             z-index: 1999;
             backdrop-filter: blur(3px);
         }
@@ -162,7 +162,7 @@
             height: 100vh;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: -8px 0 40px rgba(7, 24, 40, 0.12);
+            box-shadow: -8px 0 40px rgba(10, 31, 19, 0.12);
             z-index: 2000;
             padding: 40px;
             transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -182,7 +182,7 @@
         .cart-header h2 { font-weight: 700; font-size: 1.4rem; color: var(--text-dark); }
 
         .close-cart {
-            background: var(--blue-50);
+            background: var(--green-50);
             border: none;
             color: var(--text-dark);
             width: 36px; height: 36px;
@@ -192,7 +192,7 @@
             display: flex; align-items: center; justify-content: center;
             transition: background 0.2s;
         }
-        .close-cart:hover { background: var(--blue-100); }
+        .close-cart:hover { background: var(--green-100); }
 
         .cart-item {
             display: flex;
@@ -204,14 +204,14 @@
             width: 90px; height: 90px;
             object-fit: contain;
             border-radius: 16px;
-            background: var(--blue-50);
+            background: var(--green-50);
         }
         .cart-item-details h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
 
-        .cart-edition-badge {
+        .cart-eco-badge {
             display: inline-block;
-            background: var(--blue-100);
-            color: var(--blue-700);
+            background: var(--green-100);
+            color: var(--green-700);
             font-size: 0.68rem;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -221,14 +221,14 @@
             margin-bottom: 6px;
         }
 
-        .cart-note {
-            background: var(--blue-50);
-            border: 1px solid var(--blue-200);
+        .cart-tree-note {
+            background: var(--green-50);
+            border: 1px solid var(--green-200);
             border-radius: 12px;
             padding: 12px 16px;
             margin: 20px 0;
             font-size: 0.85rem;
-            color: var(--blue-700);
+            color: var(--green-700);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -247,7 +247,7 @@
         .btn-checkout {
             width: 100%;
             padding: 16px;
-            background: var(--blue-800);
+            background: var(--green-800);
             color: #fff;
             border: none;
             border-radius: 14px;
@@ -257,7 +257,7 @@
             letter-spacing: 0.03em;
             transition: background 0.3s;
         }
-        .btn-checkout:hover { background: var(--blue-700); }
+        .btn-checkout:hover { background: var(--green-700); }
 
         /* ── HERO ────────────────────────────────────── */
         .hero {
@@ -270,10 +270,10 @@
             overflow: hidden;
             background:
                 linear-gradient(to right,
-                    rgba(7,24,40,0.90) 0%,
-                    rgba(7,24,40,0.62) 55%,
-                    rgba(7,24,40,0.32) 100%),
-                url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=2000&q=80')
+                    rgba(10,31,19,0.88) 0%,
+                    rgba(10,31,19,0.60) 55%,
+                    rgba(10,31,19,0.30) 100%),
+                url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80')
                 center / cover no-repeat;
             background-attachment: fixed;
         }
@@ -309,7 +309,7 @@
 
         .product-eyebrow {
             font-weight: 500;
-            color: var(--blue-400);
+            color: var(--green-400);
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 0.78rem;
@@ -322,7 +322,7 @@
             content: '';
             display: block;
             width: 28px; height: 1px;
-            background: var(--blue-400);
+            background: var(--green-400);
         }
 
         .hero-text h1 {
@@ -334,7 +334,7 @@
             color: #fff;
         }
         .hero-text h1 span {
-            color: var(--blue-400);
+            color: var(--green-400);
             font-weight: 200;
             font-style: italic;
         }
@@ -360,8 +360,8 @@
             letter-spacing: -0.02em;
         }
         .btn-hero {
-            background: var(--blue-500);
-            color: var(--blue-900);
+            background: var(--green-500);
+            color: var(--green-900);
             padding: 15px 40px;
             border: none;
             border-radius: 40px;
@@ -371,11 +371,11 @@
             transition: all 0.3s ease;
             letter-spacing: 0.02em;
         }
-        .btn-hero:hover { background: var(--blue-400); transform: scale(1.03); }
+        .btn-hero:hover { background: var(--green-400); transform: scale(1.03); }
 
         /* ── TICKER ──────────────────────────────────── */
-        .ticker {
-            background: var(--blue-800);
+        .eco-ticker {
+            background: var(--green-800);
             padding: 18px 0;
             overflow: hidden;
             white-space: nowrap;
@@ -389,7 +389,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            color: var(--blue-300);
+            color: var(--green-300);
             font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -397,7 +397,7 @@
         }
         .ticker-dot {
             width: 4px; height: 4px;
-            background: var(--blue-500);
+            background: var(--green-500);
             border-radius: 50%;
             flex-shrink: 0;
         }
@@ -406,10 +406,10 @@
             to   { transform: translateX(-50%); }
         }
 
-        /* ── FEATURES SECTION ────────────────────────── */
-        .features-section {
+        /* ── ECO FEATURES ────────────────────────────── */
+        .eco-section {
             padding: 120px 5%;
-            background: var(--blue-50);
+            background: var(--green-50);
         }
 
         .section-header {
@@ -421,7 +421,7 @@
             font-weight: 600;
             letter-spacing: 3.5px;
             text-transform: uppercase;
-            color: var(--blue-600);
+            color: var(--green-600);
             margin-bottom: 14px;
             display: block;
         }
@@ -432,15 +432,8 @@
             color: var(--text-dark);
             line-height: 1.15;
         }
-        .section-intro {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.75;
-            max-width: 580px;
-            margin: 16px auto 0;
-        }
 
-        .feature-grid {
+        .eco-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
@@ -448,50 +441,50 @@
             margin: 0 auto;
         }
 
-        .feature-card {
+        .eco-card {
             background: var(--white);
             border-radius: 28px;
             padding: 48px 40px;
-            border: 1px solid var(--blue-100);
+            border: 1px solid var(--green-100);
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s;
             position: relative;
             overflow: hidden;
         }
-        .feature-card::before {
+        .eco-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--blue-400), var(--blue-600));
+            background: linear-gradient(90deg, var(--green-400), var(--green-600));
             opacity: 0;
             transition: opacity 0.3s;
         }
-        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(7,24,40,0.08); }
-        .feature-card:hover::before { opacity: 1; }
+        .eco-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(10,31,19,0.08); }
+        .eco-card:hover::before { opacity: 1; }
 
-        .feature-stat {
+        .eco-stat {
             font-size: 4.8rem;
             font-weight: 900;
-            color: var(--blue-800);
+            color: var(--green-800);
             letter-spacing: -0.04em;
             line-height: 1;
             margin-bottom: 4px;
         }
-        .feature-stat-sub {
+        .eco-stat-sub {
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--blue-600);
+            color: var(--green-600);
             letter-spacing: 0.14em;
             text-transform: uppercase;
             margin-bottom: 24px;
         }
-        .feature-card h3 {
+        .eco-card h3 {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 12px;
         }
-        .feature-card p {
+        .eco-card p {
             color: var(--text-muted);
             line-height: 1.75;
             font-size: 0.92rem;
@@ -525,7 +518,7 @@
             margin-bottom: 36px;
         }
         .btn-specs {
-            background: var(--blue-800);
+            background: var(--green-800);
             color: #fff;
             padding: 14px 34px;
             border: none;
@@ -536,18 +529,18 @@
             transition: all 0.3s;
             letter-spacing: 0.02em;
         }
-        .btn-specs:hover { background: var(--blue-700); transform: scale(1.02); }
+        .btn-specs:hover { background: var(--green-700); transform: scale(1.02); }
 
         .spec-list {
             list-style: none;
-            background: var(--blue-50);
+            background: var(--green-50);
             padding: 36px;
             border-radius: 24px;
-            border: 1px solid var(--blue-100);
+            border: 1px solid var(--green-100);
         }
         .spec-list li {
             padding: 17px 0;
-            border-bottom: 1px solid var(--blue-100);
+            border-bottom: 1px solid var(--green-100);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -556,107 +549,9 @@
         .spec-list li span { color: var(--text-muted); font-size: 0.88rem; }
         .spec-list li strong { color: var(--text-dark); font-weight: 600; font-size: 0.92rem; text-align: right; max-width: 60%; }
 
-        /* ── PACKAGING ──────────────────────────────── */
-        .packaging-section {
-            padding: 100px 5%;
-            background: var(--white);
-            border-top: 1px solid var(--blue-100);
-        }
-        .packaging-showcase {
-            display: flex;
-            align-items: center;
-            gap: 64px;
-            max-width: 1200px;
-            margin: 60px auto 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .box-flip {
-            width: 460px;
-            height: 460px;
-            perspective: 1000px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .box-flip-inner {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
-        }
-        .box-flip.flipped .box-flip-inner {
-            transform: rotateY(180deg);
-        }
-        .box-face {
-            position: absolute;
-            inset: 0;
-            backface-visibility: hidden;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 40px rgba(7,24,40,0.12);
-        }
-        .box-face img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .box-back { transform: rotateY(180deg); }
-        .box-label {
-            position: absolute;
-            bottom: 14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(7,24,40,0.65);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            padding: 5px 14px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-        .packaging-info { max-width: 440px; }
-        .box-toggle-btn {
-            margin-top: 28px;
-            background: var(--blue-800);
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-            padding: 12px 28px;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.04em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .box-toggle-btn:hover { background: var(--blue-700); transform: scale(1.02); }
-        @media (max-width: 900px) {
-            .packaging-showcase { gap: 40px; }
-            .box-flip { width: 280px; height: 280px; }
-        }
-        @media (max-width: 600px) {
-            .box-flip { width: 100%; height: 280px; }
-        }
-
-        /* ── CRAFTSMANSHIP SECTION ───────────────────── */
-        .craft-section {
-            background: var(--white);
-            border-top: 1px solid var(--blue-200);
-            padding-bottom: 60px;
-        }
-        .craft-section .feature-card {
-            background: var(--blue-50);
-        }
-        .card-icon {
-            font-size: 2.8rem;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        /* ── PLEDGE ──────────────────────────────────── */
+        /* ── VERSPRECHEN ─────────────────────────────── */
         .pledge-section {
-            background: var(--blue-800);
+            background: var(--green-800);
             padding: 120px 5%;
             text-align: center;
             position: relative;
@@ -667,7 +562,7 @@
             position: absolute;
             top: -40%; left: -10%;
             width: 120%; height: 200%;
-            background: radial-gradient(ellipse at center, rgba(33,150,196,0.07) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(82,183,136,0.07) 0%, transparent 70%);
             pointer-events: none;
         }
         .pledge-content {
@@ -678,8 +573,8 @@
         }
         .pledge-icon {
             width: 70px; height: 70px;
-            background: rgba(33,150,196,0.12);
-            border: 1px solid rgba(33,150,196,0.25);
+            background: rgba(82,183,136,0.12);
+            border: 1px solid rgba(82,183,136,0.25);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 30px;
@@ -720,6 +615,129 @@
             letter-spacing: 0.03em;
         }
 
+        /* ── PACKAGING ──────────────────────────────── */
+        .packaging-section {
+            padding: 100px 5%;
+            background: var(--white);
+            border-top: 1px solid var(--green-100);
+        }
+        .packaging-showcase {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .box-flip {
+            width: 460px;
+            height: 460px;
+            perspective: 1000px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .box-flip-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .box-flip.flipped .box-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .box-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(10,31,19,0.12);
+            text-align: center;
+        }
+        .box-face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .box-back { transform: rotateY(180deg); }
+        .box-label {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10,31,19,0.65);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            padding: 5px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .packaging-info { max-width: 440px; }
+        .box-toggle-btn {
+            margin-top: 28px;
+            background: var(--green-800);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .box-toggle-btn:hover { background: var(--green-700); transform: scale(1.02); }
+        @media (max-width: 900px) {
+            .packaging-showcase { gap: 40px; }
+            .box-flip { width: 280px; height: 280px; }
+        }
+        @media (max-width: 600px) {
+            .box-flip { width: 100%; height: 280px; }
+        }
+
+        /* ── TEAM MOBILITÄT ──────────────────────────── */
+        .team-section {
+            background: var(--green-50);
+            border-top: 1px solid var(--green-200);
+            padding-bottom: 60px;
+        }
+        .team-section .eco-card {
+            background: var(--white);
+        }
+
+        .section-intro {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 580px;
+            margin: 16px auto 0;
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .team-hint {
+            text-align: center;
+            margin-top: 56px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .team-hint a {
+            color: var(--green-600);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--green-200);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .team-hint a:hover { color: var(--green-800); border-color: var(--green-400); }
+
         /* ── REVEAL ──────────────────────────────────── */
         .reveal {
             opacity: 0;
@@ -730,7 +748,7 @@
 
         /* ── FOOTER ──────────────────────────────────── */
         footer {
-            background: var(--blue-900);
+            background: var(--green-900);
             text-align: center;
             padding: 44px 20px;
             color: rgba(255,255,255,0.35);
@@ -753,11 +771,11 @@
 
         /* ── NAV MARKETING LINK ──────────────────────── */
         .nav-divider {
-            color: var(--blue-300);
+            color: var(--green-300);
             font-weight: 300;
             user-select: none;
         }
-        .nav-marketing { color: var(--blue-600) !important; font-weight: 600 !important; }
+        .nav-marketing { color: var(--green-600) !important; font-weight: 600 !important; }
 
         /* ── RESPONSIVE ──────────────────────────────── */
         @media (max-width: 900px) {
@@ -770,11 +788,10 @@
             .hero-cta-group { justify-content: center; }
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .feature-grid { grid-template-columns: 1fr; }
+            .eco-grid { grid-template-columns: 1fr; }
             .specs-container { grid-template-columns: 1fr; }
             .cart-sidebar { width: 100%; padding: 24px; }
             .pledge-content h2 { font-size: 2.1rem; }
-            .packaging-placeholder-grid { flex-direction: column; max-width: 360px; }
         }
     </style>
 </head>
@@ -784,10 +801,10 @@
     <nav>
         <div>
             <span class="logo-text">Harrison Corp.</span>
-            <span class="logo-sub">Maritime Edition</span>
+            <span class="logo-eco">ECO Collection</span>
         </div>
         <div class="nav-links">
-            <a href="#features">Features</a>
+            <a href="#eco">Nachhaltigkeit</a>
             <a href="#specs">Technik</a>
             <a href="#pledge">Versprechen</a>
             <span class="nav-divider">|</span>
@@ -803,7 +820,7 @@
 
     <!-- MOBILE NAV DRAWER -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="#features" class="mobile-nav-link">Features</a>
+        <a href="#eco" class="mobile-nav-link">Nachhaltigkeit</a>
         <a href="#specs" class="mobile-nav-link">Technik</a>
         <a href="#pledge" class="mobile-nav-link">Versprechen</a>
         <a href="marketing.html" class="mobile-nav-link nav-marketing">Marketing</a>
@@ -819,21 +836,21 @@
             <button class="close-cart" id="closeCartBtn">✕</button>
         </div>
         <div class="cart-item">
-            <img src="maritimewatch.jpeg" alt="Harrison Maritime Watch" onerror="this.src='https://via.placeholder.com/90?text=MW'">
+            <img src="ECOwatch.png" alt="Harrison ECO Smartwatch" onerror="this.src='https://via.placeholder.com/90?text=ECO'">
             <div class="cart-item-details">
-                <span class="cart-edition-badge">Maritime</span>
-                <h3>Harrison Maritime</h3>
+                <span class="cart-eco-badge">ECO</span>
+                <h3>Harrison ECO</h3>
                 <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:8px;">Gehäuse: Titan Grade 5</p>
-                <p style="font-weight:800;color:var(--text-dark);font-size:1rem;">135,00 €</p>
+                <p style="font-weight:800;color:var(--text-dark);font-size:1rem;">125,00 €</p>
             </div>
         </div>
-        <div class="cart-note">
-            🌊 Mit diesem Kauf holen wir 1 kg Plastik aus dem Ozean.
+        <div class="cart-tree-note">
+            🌱 Mit diesem Kauf wird ein Baum gepflanzt.
         </div>
         <div>
             <div class="cart-total">
                 <span>Gesamt</span>
-                <span>135,00 €</span>
+                <span>125,00 €</span>
             </div>
             <button class="btn-checkout">Zur Kasse gehen</button>
             <p style="text-align:center;margin-top:14px;font-size:0.8rem;color:var(--text-muted);">Inkl. MwSt. Kostenloser Expressversand.</p>
@@ -844,65 +861,63 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-image reveal active">
-                <img src="maritimewatch.jpeg" alt="Harrison Maritime Watch" onerror="this.src='https://via.placeholder.com/420?text=Maritime+Watch'">
+                <img src="ECOwatch.png" alt="Harrison ECO Smartwatch" onerror="this.src='https://via.placeholder.com/420?text=ECO+Watch'">
             </div>
             <div class="hero-text reveal active">
-                <span class="product-eyebrow">Harrison Maritime Watch</span>
-                <h1>Für das<br><span>Meer.</span></h1>
-                <p>Entwickelt für Tiefseepräzision. Gebaut aus Luftfahrt-Titan. Und für jede verkaufte Uhr holen wir 1 kg Plastikmüll aus dem Ozean – kein Offset, echte Wirkung.</p>
+                <span class="product-eyebrow">Harrison ECO Smartwatch</span>
+                <h1>Trag die<br><span>Zukunft.</span></h1>
+                <p>Gefertigt mit Verantwortung. Angetrieben von erneuerbarer Energie. Für jeden Kauf pflanzen wir einen echten Baum — kein Offset, echter Wald.</p>
                 <div class="hero-cta-group">
-                    <span class="price-tag">135,00 €</span>
+                    <span class="price-tag">125,00 €</span>
                     <button class="btn-hero open-cart-btn">In den Warenkorb</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TICKER -->
-    <div class="ticker">
+    <!-- ECO TICKER -->
+    <div class="eco-ticker">
         <div class="ticker-track">
-            <span class="ticker-item"><span class="ticker-dot"></span>Wasserdicht bis 300 m</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>GPS-Navigation</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>1 Uhr = 1 kg Meeresplastik</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Titan Grade 5</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>100 % Ökostrom</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>1 Uhr = 1 Baum</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>100 % nachhaltige Materialien</span>
             <span class="ticker-item"><span class="ticker-dot"></span>3 Jahre Garantie</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Chronograph</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>ISO 6425 zertifiziert</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>CO₂-bewusst produziert</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Titan Grade 5</span>
             <!-- duplicate for seamless loop -->
-            <span class="ticker-item"><span class="ticker-dot"></span>Wasserdicht bis 300 m</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>GPS-Navigation</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>1 Uhr = 1 kg Meeresplastik</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Titan Grade 5</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>100 % Ökostrom</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>1 Uhr = 1 Baum</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>100 % nachhaltige Materialien</span>
             <span class="ticker-item"><span class="ticker-dot"></span>3 Jahre Garantie</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Chronograph</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>ISO 6425 zertifiziert</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>CO₂-bewusst produziert</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Titan Grade 5</span>
         </div>
     </div>
 
-    <!-- FEATURES -->
-    <section id="features" class="features-section">
+    <!-- ECO FEATURES -->
+    <section id="eco" class="eco-section">
         <div class="section-header reveal">
-            <span class="section-eyebrow">Features</span>
-            <h2 class="section-title">Präzision.<br>Ohne Kompromiss.</h2>
+            <span class="section-eyebrow">Nachhaltigkeit</span>
+            <h2 class="section-title">Verantwortung.<br>Von innen nach außen.</h2>
         </div>
-        <div class="feature-grid">
-            <div class="feature-card reveal">
-                <div class="feature-stat">300m</div>
-                <div class="feature-stat-sub">Wasserdichtheit</div>
-                <h3>Tief. Tiefer. Harrison.</h3>
-                <p>ISO 6425 zertifiziert für professionelle Taucher. Dichtungsringe aus Fluorkautschuk, verschraubte Krone – hergestellt für das Meer.</p>
+        <div class="eco-grid">
+            <div class="eco-card reveal">
+                <div class="eco-stat">100%</div>
+                <div class="eco-stat-sub">Ökostrom</div>
+                <h3>Grüne Energie. Vollständig.</h3>
+                <p>Wir beziehen 100 % unseres Stroms aus erneuerbaren Energiequellen – für eine saubere Produktion von Anfang bis Ende.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="feature-stat">GPS</div>
-                <div class="feature-stat-sub">Multi-Satellit</div>
-                <h3>Immer auf Kurs.</h3>
-                <p>Empfängt GPS, GLONASS und Galileo gleichzeitig. Präzise Positionierung auf offener See – selbst bei bewölktem Himmel.</p>
+            <div class="eco-card reveal">
+                <div class="eco-stat">1:1</div>
+                <div class="eco-stat-sub">Uhr · Baum</div>
+                <h3>1 Uhr. 1 Baum.</h3>
+                <p>Jede verkaufte ECO Smartwatch finanziert die Pflanzung eines Baumes. Kein CO₂-Offset. Kein Greenwashing. Echter Wald.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="feature-stat">Ti</div>
-                <div class="feature-stat-sub">Titan Grade 5</div>
-                <h3>Leichter als Stahl. Härter als beides.</h3>
-                <p>Luftfahrt-Titan, Saphirglas, keine Kompromisse. Das Gehäuse hält Salzwasser, Druck und Zeit stand – ohne Gewicht zu verlieren.</p>
+            <div class="eco-card reveal">
+                <div class="eco-stat">100%</div>
+                <div class="eco-stat-sub">Nachhaltig</div>
+                <h3>Vom Material bis zur Box.</h3>
+                <p>Von der ersten Schraube bis zum Verpackungskarton. Alle Materialien sind zertifiziert nachhaltig beschafft und vollständig rückverfolgbar.</p>
             </div>
         </div>
     </section>
@@ -911,80 +926,81 @@
     <section class="packaging-section reveal">
         <div class="section-header">
             <span class="section-eyebrow">Verpackung</span>
-            <h2 class="section-title">Verpackt.<br>Wie es sich gehört.</h2>
-            <p class="section-intro">Robuste Präzisionsbox für eine robuste Präzisionsuhr – klick rein.</p>
+            <h2 class="section-title">Verpackt.<br>Nachhaltig.</h2>
+            <p class="section-intro">Unsere Verpackung besteht zu 100 % aus recyceltem Karton – plastikfrei, komplett kompostierbar.</p>
         </div>
         <div class="packaging-showcase">
             <div class="box-flip" id="boxFlip">
                 <div class="box-flip-inner">
                     <div class="box-face box-front">
-                        <img src="maritime_geschlossen.jpeg" alt="Maritime Watch Verpackung geschlossen">
+                        <img src="BOXzu.jpeg" alt="ECO Smartwatch Verpackung geschlossen">
                         <p class="box-label">Verpackung geschlossen</p>
                     </div>
                     <div class="box-face box-back">
-                        <img src="maritime_offen.jpeg" alt="Maritime Watch Verpackung geöffnet">
+                        <img src="BOXauf.jpeg" alt="ECO Smartwatch Verpackung geöffnet">
                         <p class="box-label">Verpackung geöffnet</p>
                     </div>
                 </div>
             </div>
             <div class="packaging-info reveal">
-                <div class="feature-stat">100%</div>
-                <div class="feature-stat-sub">Premium-Verpackung</div>
-                <h3>Unboxing, das bleibt.</h3>
-                <p>Die Harrison Maritime Watch kommt in einer hochwertigen Box – designed für den ersten Eindruck und gebaut zum Aufbewahren. 100 % nachhaltige Materialien, plastikfrei und vollständig recycelbar.</p>
+                <div class="eco-stat">100%</div>
+                <div class="eco-stat-sub">Recycelter Karton</div>
+                <h3>Kein Plastik. Kein Kompromiss.</h3>
+                <p>Von der äußeren Hülle bis zur Inlage – vollständig aus wiederverwertetem Material. Entsorge die Box im Papiermüll. Fertig.</p>
                 <button class="box-toggle-btn" id="boxToggleBtn">Box öffnen ↗</button>
             </div>
         </div>
     </section>
 
-    <!-- CRAFTSMANSHIP -->
-    <section class="features-section craft-section">
+    <!-- TEAM & MOBILITÄT -->
+    <section class="eco-section team-section">
         <div class="section-header reveal">
-            <span class="section-eyebrow">Qualität</span>
-            <h2 class="section-title">Handwerk.<br>Das bleibt.</h2>
-            <p class="section-intro">Hinter jedem Detail der Harrison Maritime Watch steckt ein Versprechen: Qualität, die nicht kleiner wird, je länger man hinschaut.</p>
+            <span class="section-eyebrow">Unser Team</span>
+            <h2 class="section-title">Nachhaltigkeit<br>beginnt bei uns.</h2>
+            <p class="section-intro">Unsere Werte hören nicht an der Produktionslinie auf. Wir fördern nachhaltige Mobilität – für unser ganzes Team.</p>
         </div>
-        <div class="feature-grid">
-            <div class="feature-card reveal">
-                <div class="card-icon">🔬</div>
-                <div class="feature-stat" style="font-size:3rem;">100%</div>
-                <div class="feature-stat-sub">Labor-geprüft</div>
-                <h3>Jede Uhr. Einzeln getestet.</h3>
-                <p>Vor Auslieferung wird jede Harrison Maritime Watch in unserem Drucktank auf exakte Wasserdichtigkeit geprüft. Kein Kompromiss.</p>
+        <div class="eco-grid">
+            <div class="eco-card reveal">
+                <div class="card-icon">🚗</div>
+                <div class="eco-stat">15 %</div>
+                <div class="eco-stat-sub">E-Mobilität</div>
+                <h3>Rabatt auf E-Autos</h3>
+                <p>Rahmenverträge mit Mercedes, BMW und Audi ermöglichen unseren Mitarbeitenden 15 % Rabatt auf E-Autos und Leasing.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="card-icon">♻️</div>
-                <div class="feature-stat" style="font-size:3rem;">1 kg</div>
-                <div class="feature-stat-sub">Meeresplastik pro Uhr</div>
-                <h3>1 Uhr. 1 kg weniger im Meer.</h3>
-                <p>Jede verkaufte Harrison Maritime Watch finanziert die Entfernung von 1 kg Plastikmüll aus dem Ozean – in Partnerschaft mit Ocean Conservancy. Kein Offset. Echte Wirkung.</p>
+            <div class="eco-card reveal">
+                <div class="card-icon">⚡</div>
+                <div class="eco-stat">10</div>
+                <div class="eco-stat-sub">Ladepunkte</div>
+                <h3>Kostenlose Wallboxen</h3>
+                <p>Direkt am Arbeitsplatz laden – kostenlos. 10 Ladepunkte auf unserem Mitarbeiterparkplatz stehen täglich zur Verfügung.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="card-icon">🛡️</div>
-                <div class="feature-stat" style="font-size:3rem;">3 J.</div>
-                <div class="feature-stat-sub">Full-Service</div>
-                <h3>Service, der mitgeht.</h3>
-                <p>3 Jahre umfassende Garantie. Sofortiger Austausch bei Defekt. Unser Service-Team ist für dich da – weltweit, ohne Wenn und Aber.</p>
+            <div class="eco-card reveal">
+                <div class="card-icon">🎫</div>
+                <div class="eco-stat">50 %</div>
+                <div class="eco-stat-sub">Deutschlandticket</div>
+                <h3>ÖPNV für alle</h3>
+                <p>Wir übernehmen die Hälfte. Weil öffentlicher Nahverkehr die Zukunft ist – und wir das nicht nur sagen, sondern zahlen.</p>
             </div>
         </div>
+        <p class="team-hint reveal">Du möchtest Teil des Teams werden? <a href="mailto:jobs@harrisoncorp.de">Schreib uns.</a></p>
     </section>
 
     <!-- SPECS -->
     <section id="specs" class="specs-section">
         <div class="specs-container">
             <div class="specs-text reveal">
-                <h3>Titan. Tiefe. Kein Kompromiss.</h3>
-                <p>Das Gehäuse aus Luftfahrt-Titan (Grade 5) mit kratzfestem Saphirglas und verschraubter Krone taucht bis 300 Meter – ISO 6425 zertifiziert, gefertigt für das Meer.</p>
-                <button class="btn-specs open-cart-btn">Für 135 € sichern</button>
+                <h3>Titan. Präzision. Kein Kompromiss.</h3>
+                <p>Das Gehäuse aus Luftfahrt-Titan (Grade 5) umschließt ein kratzfestes Saphirglas und schützt jede Mechanik bis −20 °C. Nachhaltig produziert, extremst belastbar.</p>
+                <button class="btn-specs open-cart-btn">Für 125 € sichern</button>
             </div>
             <div class="reveal">
                 <ul class="spec-list">
                     <li><span>Material</span><strong>Titan (Grade 5)</strong></li>
                     <li><span>Display</span><strong>Kratzfestes Saphirglas</strong></li>
-                    <li><span>Wasserdichtheit</span><strong>300 m (ISO 6425)</strong></li>
-                    <li><span>Navigation</span><strong>GPS, GLONASS, Galileo</strong></li>
-                    <li><span>Akku</span><strong>Bis zu 48 Stunden</strong></li>
-                    <li><span>Temperatur</span><strong>−20 °C bis 60 °C</strong></li>
+                    <li><span>Wasserdichte</span><strong>100 m (EN13319 zertif.)</strong></li>
+                    <li><span>Akku (Normal)</span><strong>Bis zu 36 Stunden</strong></li>
+                    <li><span>Akku (Alpin-Modus)</span><strong>Bis zu 72 Stunden</strong></li>
+                    <li><span>Temperatur</span><strong>−20 °C bis 55 °C</strong></li>
                     <li><span>Netzwerk</span><strong>LTE, WLAN, Bluetooth 5.3</strong></li>
                 </ul>
             </div>
@@ -995,27 +1011,27 @@
     <section id="pledge" class="pledge-section reveal">
         <div class="pledge-content">
             <div class="pledge-icon">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2196c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 12l10 5 10-5"/>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#52b788" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22V12"/>
+                    <path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7z"/>
+                    <path d="M12 12C12 8 15 5 19 5c0 4-3 7-7 7z"/>
                 </svg>
             </div>
-            <h2>Unser Versprechen.<br>Dein Vertrauen.</h2>
-            <p>Sollte deine Harrison Maritime Watch innerhalb der ersten 3 Jahre einen technischen Defekt aufweisen, erhältst du sofort ein Neugerät – und wir holen 1 weiteres kg Plastik aus dem Meer.</p>
-            <p>Präzision, die hält. Service, der steht. Ozeane, die sauberer werden.</p>
+            <h2>Unser Versprechen<br>an die Erde.</h2>
+            <p>Sollte deine Harrison ECO Smartwatch innerhalb der ersten 3 Jahre einen technischen Defekt aufweisen, erhältst du sofort ein Neugerät — und wir pflanzen noch einen weiteren Baum.</p>
+            <p>Keine Kompromisse beim Produkt. Keine Kompromisse für den Planeten.</p>
             <div class="pledge-badges">
-                <span class="pledge-badge">⚓ 3 Jahre Garantie</span>
-                <span class="pledge-badge">🌊 1 kg aus dem Ozean</span>
-                <span class="pledge-badge">♻️ Ocean Conservancy</span>
-                <span class="pledge-badge">🛡️ Sofort-Austausch</span>
+                <span class="pledge-badge">🌿 3 Jahre Garantie</span>
+                <span class="pledge-badge">🌳 Baum pro Kauf</span>
+                <span class="pledge-badge">♻️ Nachhaltig zertifiziert</span>
+                <span class="pledge-badge">⚡ 100 % Ökostrom</span>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 HARRISON CORP. Maritime Edition.</p>
+        <p>© 2026 HARRISON CORP. ECO Collection.</p>
         <div class="footer-links">
             <a href="#">Impressum</a>
             <a href="#">Datenschutz</a>

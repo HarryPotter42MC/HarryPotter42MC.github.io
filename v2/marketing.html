@@ -7,27 +7,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue-900: #071828;
-            --blue-800: #0d2b45;
-            --blue-700: #1a4f7a;
-            --blue-600: #1e74a8;
-            --blue-500: #2196c4;
-            --blue-400: #4db8d8;
-            --blue-300: #7dd3e8;
-            --blue-200: #b0e8f5;
-            --blue-100: #d6f5fc;
-            --blue-50:  #eefafd;
-            --white:    #ffffff;
-            --text-dark: #071828;
-            --text-muted:#4a7a96;
-            --border:    #b0e8f5;
+            --green-900: #0a1f13;
+            --green-800: #1a3d2b;
+            --green-700: #2d6a4f;
+            --green-600: #40916c;
+            --green-500: #52b788;
+            --green-400: #74c69d;
+            --green-300: #95d5b2;
+            --green-200: #b7e4c7;
+            --green-100: #d8f3dc;
+            --green-50:  #f0f9f3;
+            --white:     #ffffff;
+            --text-dark: #0d1b12;
+            --text-muted:#52796f;
+            --border:    #b7e4c7;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--blue-50);
+            background-color: var(--green-50);
             color: var(--text-dark);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -42,10 +42,10 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 5%;
-            background: rgba(238, 250, 253, 0.88);
+            background: rgba(240, 249, 243, 0.88);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(176, 232, 245, 0.6);
+            border-bottom: 1px solid rgba(183, 228, 199, 0.6);
             z-index: 1000;
         }
 
@@ -53,16 +53,16 @@
             font-size: 17px;
             font-weight: 800;
             letter-spacing: 2px;
-            color: var(--blue-800);
+            color: var(--green-800);
             text-transform: uppercase;
             display: block;
         }
 
-        .logo-sub {
+        .logo-eco {
             font-size: 10px;
             font-weight: 500;
             letter-spacing: 3.5px;
-            color: var(--blue-600);
+            color: var(--green-600);
             text-transform: uppercase;
             display: block;
             margin-top: 2px;
@@ -70,8 +70,8 @@
 
         .btn-back {
             background: transparent;
-            color: var(--blue-800);
-            border: 1.5px solid var(--blue-300);
+            color: var(--green-800);
+            border: 1.5px solid var(--green-300);
             padding: 9px 20px;
             border-radius: 30px;
             font-weight: 600;
@@ -85,8 +85,8 @@
             gap: 6px;
         }
         .btn-back:hover {
-            background: var(--blue-100);
-            border-color: var(--blue-400);
+            background: var(--green-100);
+            border-color: var(--green-400);
         }
 
         /* ── HERO ────────────────────────────────────── */
@@ -103,8 +103,8 @@
             font-weight: 700;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--blue-600);
-            background: var(--blue-100);
+            color: var(--green-600);
+            background: var(--green-100);
             padding: 5px 14px;
             border-radius: 20px;
             margin-bottom: 24px;
@@ -115,7 +115,7 @@
             font-weight: 800;
             line-height: 1.12;
             letter-spacing: -0.03em;
-            color: var(--blue-900);
+            color: var(--green-900);
             margin-bottom: 20px;
         }
 
@@ -127,7 +127,7 @@
             margin: 0 auto;
         }
 
-        /* ── VIDEO PLACEHOLDER ───────────────────────── */
+        /* ── VIDEO ───────────────────────────────────── */
         .video-section {
             padding: 0 5% 100px;
         }
@@ -137,30 +137,12 @@
             margin: 0 auto;
         }
 
-        .video-placeholder {
+        .video-wrapper video {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            background: var(--blue-900);
             border-radius: 20px;
-            box-shadow: 0 16px 64px rgba(7, 24, 40, 0.18);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            color: rgba(255,255,255,0.35);
-        }
-
-        .video-placeholder-icon {
-            font-size: 3.5rem;
-            opacity: 0.4;
-        }
-
-        .video-placeholder p {
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            box-shadow: 0 16px 64px rgba(10, 31, 19, 0.18);
+            display: block;
+            background: var(--green-900);
         }
 
         .video-caption {
@@ -177,8 +159,8 @@
         .gallery-section {
             padding: 80px 5%;
             background: var(--white);
-            border-top: 1px solid var(--blue-100);
-            border-bottom: 1px solid var(--blue-100);
+            border-top: 1px solid var(--green-100);
+            border-bottom: 1px solid var(--green-100);
         }
 
         .gallery-section h2 {
@@ -186,7 +168,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            color: var(--blue-900);
+            color: var(--green-900);
             margin-bottom: 56px;
         }
 
@@ -212,7 +194,7 @@
             aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(7, 24, 40, 0.1);
+            box-shadow: 0 4px 24px rgba(10, 31, 19, 0.1);
         }
 
         .gallery-item .gallery-label {
@@ -223,28 +205,9 @@
             color: var(--text-muted);
         }
 
-        .gallery-placeholder {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background: var(--blue-50);
-            border: 2px dashed var(--blue-200);
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--blue-400);
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-        .gallery-placeholder-icon { font-size: 2rem; opacity: 0.5; }
-
         /* ── PROMISES ────────────────────────────────── */
         .promises-section {
-            background: var(--blue-900);
+            background: var(--green-900);
             padding: 100px 5%;
         }
 
@@ -255,7 +218,7 @@
 
         .promises-header .section-eyebrow {
             background: rgba(255,255,255,0.08);
-            color: var(--blue-300);
+            color: var(--green-300);
         }
 
         .promises-header h2 {
@@ -292,7 +255,7 @@
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.18em;
-            color: var(--blue-500);
+            color: var(--green-500);
             text-transform: uppercase;
             display: block;
             margin-bottom: 8px;
@@ -326,9 +289,9 @@
         }
 
         .promise-tag:hover {
-            background: rgba(33,150,196,0.15);
-            border-color: var(--blue-500);
-            color: var(--blue-300);
+            background: rgba(82,183,136,0.15);
+            border-color: var(--green-500);
+            color: var(--green-300);
         }
 
         @media (max-width: 900px) {
@@ -338,7 +301,7 @@
 
         /* ── FOOTER ──────────────────────────────────── */
         footer {
-            background: var(--blue-900);
+            background: var(--green-900);
             text-align: center;
             padding: 44px 20px;
             color: rgba(255,255,255,0.35);
@@ -370,10 +333,12 @@
         /* ── RESPONSIVE ──────────────────────────────── */
         @media (max-width: 900px) {
             .gallery-grid { flex-direction: column; max-width: 400px; }
+            .promises-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
             .hero { padding-top: 120px; }
+            .promise-card { padding: 24px; }
         }
     </style>
 </head>
@@ -383,26 +348,25 @@
     <nav>
         <div>
             <span class="logo-text">Harrison Corp.</span>
-            <span class="logo-sub">Maritime Edition</span>
+            <span class="logo-eco">ECO Collection</span>
         </div>
         <a href="index.html" class="btn-back">← Zurück zur Website</a>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <span class="section-eyebrow">Kampagne — Geschäftsjahr 3</span>
-        <h1>Wie wir die Maritime Watch<br>vermarkten.</h1>
-        <p>Ein Überblick über unsere diesjährige Marketingkampagne – von der Produktkommunikation bis zu unseren Qualitätsversprechen.</p>
+        <span class="section-eyebrow">Kampagne — Geschäftsjahr 2</span>
+        <h1>Wie wir Nachhaltigkeit<br>vermarkten.</h1>
+        <p>Ein Überblick über unsere diesjährige Marketingkampagne – von der Produktkommunikation bis zu unseren Nachhaltigkeitsversprechen.</p>
     </section>
 
-    <!-- VIDEO PLACEHOLDER -->
+    <!-- VIDEO -->
     <section class="video-section">
         <div class="video-wrapper reveal">
-            <div class="video-placeholder">
-                <span class="video-placeholder-icon">🎬</span>
-                <p>Kampagnenvideo folgt</p>
-            </div>
-            <p class="video-caption">Harrison Maritime Watch — Kampagne Geschäftsjahr 3</p>
+            <video controls preload="metadata">
+                <source src="VideoNachhaltigkeit.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">ECO Smartwatch — Nachhaltigkeitskampagne 2026</p>
         </div>
     </section>
 
@@ -411,15 +375,15 @@
         <h2 class="reveal">Produkt &amp; Verpackung</h2>
         <div class="gallery-grid">
             <div class="gallery-item reveal">
-                <img src="maritime_geschlossen.jpeg" alt="Maritime Watch Verpackung geschlossen">
+                <img src="BOXzu.jpeg" alt="Verpackung geschlossen">
                 <span class="gallery-label">Verpackung geschlossen</span>
             </div>
             <div class="gallery-item reveal">
-                <img src="maritimewatch.jpeg" alt="Harrison Maritime Watch">
-                <span class="gallery-label">Harrison Maritime Watch</span>
+                <img src="ECOwatch.png" alt="ECO Smartwatch">
+                <span class="gallery-label">ECO Smartwatch</span>
             </div>
             <div class="gallery-item reveal">
-                <img src="maritime_offen.jpeg" alt="Maritime Watch Verpackung geöffnet">
+                <img src="BOXauf.jpeg" alt="Verpackung geöffnet">
                 <span class="gallery-label">Verpackung geöffnet</span>
             </div>
         </div>
@@ -435,52 +399,38 @@
 
             <div class="promise-row reveal">
                 <div class="promise-row-label">
-                    <span class="promise-row-num">01 — Ozean-Kampagne</span>
-                    <span class="promise-row-title">1 Uhr = 1 kg<br>weniger im Meer.</span>
+                    <span class="promise-row-num">01 — Nachhaltigkeit</span>
+                    <span class="promise-row-title">Echt grün.<br>Kein Greenwashing.</span>
                 </div>
                 <div class="promise-tags">
-                    <span class="promise-tag">1 Uhr = 1 kg Meeresplastik</span>
-                    <span class="promise-tag">Echter Ozean, kein CO₂-Offset</span>
-                    <span class="promise-tag">Ocean Conservancy Partner</span>
-                    <span class="promise-tag">Echte Wirkung, belegbar</span>
-                    <span class="promise-tag">+1 kg Plastik pro Garantiefall</span>
+                    <span class="promise-tag">100 % Ökostrom</span>
+                    <span class="promise-tag">1 Uhr = 1 Baum</span>
+                    <span class="promise-tag">Echter Wald, kein CO₂-Offset</span>
+                    <span class="promise-tag">100 % nachhaltige Materialien</span>
+                    <span class="promise-tag">CO₂-bewusste Lieferkette</span>
+                    <span class="promise-tag">Vollständig rückverfolgbar</span>
+                    <span class="promise-tag">100 % recycelter Karton</span>
+                    <span class="promise-tag">Plastikfrei &amp; kompostierbar</span>
                 </div>
             </div>
 
             <div class="promise-row reveal">
                 <div class="promise-row-label">
-                    <span class="promise-row-num">02 — Qualität &amp; Präzision</span>
-                    <span class="promise-row-title">Echt stark.<br>Kein Schönwetter.</span>
-                </div>
-                <div class="promise-tags">
-                    <span class="promise-tag">300 m wasserdicht</span>
-                    <span class="promise-tag">ISO 6425 zertifiziert</span>
-                    <span class="promise-tag">Titan Grade 5 Gehäuse</span>
-                    <span class="promise-tag">Kratzfestes Saphirglas</span>
-                    <span class="promise-tag">GPS + GLONASS + Galileo</span>
-                    <span class="promise-tag">Einzeln im Drucktank geprüft</span>
-                    <span class="promise-tag">Verschraubte Krone</span>
-                    <span class="promise-tag">−20 °C bis 60 °C Betrieb</span>
-                </div>
-            </div>
-
-            <div class="promise-row reveal">
-                <div class="promise-row-label">
-                    <span class="promise-row-num">03 — Garantie &amp; Service</span>
+                    <span class="promise-row-num">02 — Garantie &amp; Service</span>
                     <span class="promise-row-title">Langfristig<br>an deiner Seite.</span>
                 </div>
                 <div class="promise-tags">
                     <span class="promise-tag">3 Jahre Garantie</span>
                     <span class="promise-tag">Sofortiger Ersatz bei Defekt</span>
-                    <span class="promise-tag">Weltweiter Service</span>
+                    <span class="promise-tag">+1 Baum pro Garantiefall</span>
                     <span class="promise-tag">Alle Versprechen belegbar</span>
                 </div>
             </div>
 
             <div class="promise-row reveal">
                 <div class="promise-row-label">
-                    <span class="promise-row-num">04 — Team &amp; Intern</span>
-                    <span class="promise-row-title">Qualität<br>beginnt bei uns.</span>
+                    <span class="promise-row-num">03 — Team &amp; Intern</span>
+                    <span class="promise-row-title">Nachhaltigkeit<br>beginnt bei uns.</span>
                 </div>
                 <div class="promise-tags">
                     <span class="promise-tag">15 % Rabatt auf E-Autos</span>
@@ -495,7 +445,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 HARRISON CORP. Maritime Edition.</p>
+        <p>© 2026 HARRISON CORP. ECO Collection.</p>
         <div class="footer-links">
             <a href="#">Impressum</a>
             <a href="#">Datenschutz</a>
