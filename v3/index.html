@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARRISON CORP. | Maritime Watch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-900: #071828;
+            --blue-800: #0d2b45;
+            --blue-700: #1a4f7a;
+            --blue-600: #1e74a8;
+            --blue-500: #2196c4;
+            --blue-400: #4db8d8;
+            --blue-300: #7dd3e8;
+            --blue-200: #b0e8f5;
+            --blue-100: #d6f5fc;
+            --blue-50:  #eefafd;
+            --white:    #ffffff;
+            --text-dark: #071828;
+            --text-muted:#4a7a96;
+            --border:    #b0e8f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--blue-50);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ─────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 5%;
+            background: rgba(238, 250, 253, 0.88);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(176, 232, 245, 0.6);
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--blue-800);
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3.5px;
+            color: var(--blue-600);
+            text-transform: uppercase;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: color 0.25s;
+        }
+        .nav-links a:hover { color: var(--blue-800); }
+
+        .btn-buy {
+            background-color: var(--blue-800);
+            color: #fff;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-buy:hover { background-color: var(--blue-700); transform: scale(1.02); }
+
+        /* ── HAMBURGER ───────────────────────────────── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .hamburger:hover { background: rgba(26, 79, 122, 0.08); }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--blue-800);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── MOBILE NAV ──────────────────────────────── */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 61px;
+            left: 0;
+            width: 100%;
+            background: rgba(238, 250, 253, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 5%;
+            flex-direction: column;
+            gap: 18px;
+            z-index: 999;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        /* ── CART OVERLAY ────────────────────────────── */
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(7, 24, 40, 0.5);
+            z-index: 1999;
+            backdrop-filter: blur(3px);
+        }
+        .cart-overlay.open { display: block; }
+
+        /* ── CART SIDEBAR ────────────────────────────── */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 400px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: -8px 0 40px rgba(7, 24, 40, 0.12);
+            z-index: 2000;
+            padding: 40px;
+            transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-sidebar.open { right: 0; }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 36px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+        .cart-header h2 { font-weight: 700; font-size: 1.4rem; color: var(--text-dark); }
+
+        .close-cart {
+            background: var(--blue-50);
+            border: none;
+            color: var(--text-dark);
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .close-cart:hover { background: var(--blue-100); }
+
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: auto;
+            align-items: center;
+        }
+        .cart-item img {
+            width: 90px; height: 90px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: var(--blue-50);
+        }
+        .cart-item-details h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
+
+        .cart-edition-badge {
+            display: inline-block;
+            background: var(--blue-100);
+            color: var(--blue-700);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            padding: 2px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .cart-note {
+            background: var(--blue-50);
+            border: 1px solid var(--blue-200);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 20px 0;
+            font-size: 0.85rem;
+            color: var(--blue-700);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-total {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+        .btn-checkout {
+            width: 100%;
+            padding: 16px;
+            background: var(--blue-800);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.03em;
+            transition: background 0.3s;
+        }
+        .btn-checkout:hover { background: var(--blue-700); }
+
+        /* ── HERO ────────────────────────────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(to right,
+                    rgba(7,24,40,0.90) 0%,
+                    rgba(7,24,40,0.62) 55%,
+                    rgba(7,24,40,0.32) 100%),
+                url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=2000&q=80')
+                center / cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 80px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-image img {
+            max-width: 420px;
+            width: 100%;
+            filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5));
+            transition: transform 0.6s ease;
+        }
+        .hero-image img:hover { transform: scale(1.04) translateY(-8px); }
+
+        .hero-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-eyebrow {
+            font-weight: 500;
+            color: var(--blue-400);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .product-eyebrow::before {
+            content: '';
+            display: block;
+            width: 28px; height: 1px;
+            background: var(--blue-400);
+        }
+
+        .hero-text h1 {
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.04em;
+            margin-bottom: 28px;
+            color: #fff;
+        }
+        .hero-text h1 span {
+            color: var(--blue-400);
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 40px;
+            max-width: 460px;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .price-tag {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .btn-hero {
+            background: var(--blue-500);
+            color: var(--blue-900);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+        .btn-hero:hover { background: var(--blue-400); transform: scale(1.03); }
+
+        /* ── TICKER ──────────────────────────────────── */
+        .ticker {
+            background: var(--blue-800);
+            padding: 18px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-track {
+            display: inline-flex;
+            gap: 60px;
+            animation: ticker 22s linear infinite;
+        }
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--blue-300);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+        .ticker-dot {
+            width: 4px; height: 4px;
+            background: var(--blue-500);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ── FEATURES SECTION ────────────────────────── */
+        .features-section {
+            padding: 120px 5%;
+            background: var(--blue-50);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+        .section-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--blue-600);
+            margin-bottom: 14px;
+            display: block;
+        }
+        .section-title {
+            font-size: 2.9rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-dark);
+            line-height: 1.15;
+        }
+        .section-intro {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 580px;
+            margin: 16px auto 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 48px 40px;
+            border: 1px solid var(--blue-100);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-400), var(--blue-600));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(7,24,40,0.08); }
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-stat {
+            font-size: 4.8rem;
+            font-weight: 900;
+            color: var(--blue-800);
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .feature-stat-sub {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--blue-600);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.75;
+            font-size: 0.92rem;
+        }
+
+        /* ── SPECS ───────────────────────────────────── */
+        .specs-section {
+            padding: 120px 5%;
+            background: var(--white);
+        }
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .specs-text h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 22px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+        .specs-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 36px;
+        }
+        .btn-specs {
+            background: var(--blue-800);
+            color: #fff;
+            padding: 14px 34px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.02em;
+        }
+        .btn-specs:hover { background: var(--blue-700); transform: scale(1.02); }
+
+        .spec-list {
+            list-style: none;
+            background: var(--blue-50);
+            padding: 36px;
+            border-radius: 24px;
+            border: 1px solid var(--blue-100);
+        }
+        .spec-list li {
+            padding: 17px 0;
+            border-bottom: 1px solid var(--blue-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .spec-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .spec-list li span { color: var(--text-muted); font-size: 0.88rem; }
+        .spec-list li strong { color: var(--text-dark); font-weight: 600; font-size: 0.92rem; text-align: right; max-width: 60%; }
+
+        /* ── PACKAGING ──────────────────────────────── */
+        .packaging-section {
+            padding: 100px 5%;
+            background: var(--white);
+            border-top: 1px solid var(--blue-100);
+        }
+        .packaging-showcase {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .box-flip {
+            width: 460px;
+            height: 460px;
+            perspective: 1000px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .box-flip-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .box-flip.flipped .box-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .box-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(7,24,40,0.12);
+        }
+        .box-face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .box-back { transform: rotateY(180deg); }
+        .box-label {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(7,24,40,0.65);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            padding: 5px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .packaging-info { max-width: 440px; }
+        .box-toggle-btn {
+            margin-top: 28px;
+            background: var(--blue-800);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .box-toggle-btn:hover { background: var(--blue-700); transform: scale(1.02); }
+        @media (max-width: 900px) {
+            .packaging-showcase { gap: 40px; }
+            .box-flip { width: 280px; height: 280px; }
+        }
+        @media (max-width: 600px) {
+            .box-flip { width: 100%; height: 280px; }
+        }
+
+        /* ── CRAFTSMANSHIP SECTION ───────────────────── */
+        .craft-section {
+            background: var(--white);
+            border-top: 1px solid var(--blue-200);
+            padding-bottom: 60px;
+        }
+        .craft-section .feature-card {
+            background: var(--blue-50);
+        }
+        .card-icon {
+            font-size: 2.8rem;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* ── PLEDGE ──────────────────────────────────── */
+        .pledge-section {
+            background: var(--blue-800);
+            padding: 120px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .pledge-section::before {
+            content: '';
+            position: absolute;
+            top: -40%; left: -10%;
+            width: 120%; height: 200%;
+            background: radial-gradient(ellipse at center, rgba(33,150,196,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .pledge-content {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .pledge-icon {
+            width: 70px; height: 70px;
+            background: rgba(33,150,196,0.12);
+            border: 1px solid rgba(33,150,196,0.25);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 30px;
+        }
+        .pledge-content h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        .pledge-content p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+            font-weight: 300;
+        }
+        .pledge-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+        .pledge-badge {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 30px;
+            padding: 9px 18px;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+
+        /* ── REVEAL ──────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ── FOOTER ──────────────────────────────────── */
+        footer {
+            background: var(--blue-900);
+            text-align: center;
+            padding: 44px 20px;
+            color: rgba(255,255,255,0.35);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 14px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.25);
+            text-decoration: none;
+            font-size: 0.78rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.65); }
+
+        /* ── NAV MARKETING LINK ──────────────────────── */
+        .nav-divider {
+            color: var(--blue-300);
+            font-weight: 300;
+            user-select: none;
+        }
+        .nav-marketing { color: var(--blue-600) !important; font-weight: 600 !important; }
+
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width: 900px) {
+            .hero { padding-top: 120px; background-attachment: scroll; }
+            .hero-content { flex-direction: column-reverse; text-align: center; }
+            .hero-text { align-items: center; }
+            .hero-text h1 { font-size: 3.4rem; }
+            .hero-text p { margin: 0 auto 32px; }
+            .product-eyebrow { justify-content: center; }
+            .hero-cta-group { justify-content: center; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .specs-container { grid-template-columns: 1fr; }
+            .cart-sidebar { width: 100%; padding: 24px; }
+            .pledge-content h2 { font-size: 2.1rem; }
+            .packaging-placeholder-grid { flex-direction: column; max-width: 360px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div>
+            <span class="logo-text">Harrison Corp.</span>
+            <span class="logo-sub">Maritime Edition</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#specs">Technik</a>
+            <a href="#pledge">Versprechen</a>
+            <span class="nav-divider">|</span>
+            <a href="marketing.html" class="nav-marketing">Marketing</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <button class="btn-buy open-cart-btn">Kaufen</button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menü">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#features" class="mobile-nav-link">Features</a>
+        <a href="#specs" class="mobile-nav-link">Technik</a>
+        <a href="#pledge" class="mobile-nav-link">Versprechen</a>
+        <a href="marketing.html" class="mobile-nav-link nav-marketing">Marketing</a>
+    </div>
+
+    <!-- CART OVERLAY -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- WARENKORB SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Warenkorb</h2>
+            <button class="close-cart" id="closeCartBtn">✕</button>
+        </div>
+        <div class="cart-item">
+            <img src="maritimewatch.jpeg" alt="Harrison Maritime Watch" onerror="this.src='https://via.placeholder.com/90?text=MW'">
+            <div class="cart-item-details">
+                <span class="cart-edition-badge">Maritime</span>
+                <h3>Harrison Maritime</h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:8px;">Gehäuse: Titan Grade 5</p>
+                <p style="font-weight:800;color:var(--text-dark);font-size:1rem;">135,00 €</p>
+            </div>
+        </div>
+        <div class="cart-note">
+            🌊 Mit diesem Kauf holen wir 1 kg Plastik aus dem Ozean.
+        </div>
+        <div>
+            <div class="cart-total">
+                <span>Gesamt</span>
+                <span>135,00 €</span>
+            </div>
+            <button class="btn-checkout">Zur Kasse gehen</button>
+            <p style="text-align:center;margin-top:14px;font-size:0.8rem;color:var(--text-muted);">Inkl. MwSt. Kostenloser Expressversand.</p>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image reveal active">
+                <img src="maritimewatch.jpeg" alt="Harrison Maritime Watch" onerror="this.src='https://via.placeholder.com/420?text=Maritime+Watch'">
+            </div>
+            <div class="hero-text reveal active">
+                <span class="product-eyebrow">Harrison Maritime Watch</span>
+                <h1>Für das<br><span>Meer.</span></h1>
+                <p>Entwickelt für Tiefseepräzision. Gebaut aus Luftfahrt-Titan. Und für jede verkaufte Uhr holen wir 1 kg Plastikmüll aus dem Ozean – kein Offset, echte Wirkung.</p>
+                <div class="hero-cta-group">
+                    <span class="price-tag">135,00 €</span>
+                    <button class="btn-hero open-cart-btn">In den Warenkorb</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker">
+        <div class="ticker-track">
+            <span class="ticker-item"><span class="ticker-dot"></span>Wasserdicht bis 300 m</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>GPS-Navigation</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>1 Uhr = 1 kg Meeresplastik</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Titan Grade 5</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>3 Jahre Garantie</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Chronograph</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>ISO 6425 zertifiziert</span>
+            <!-- duplicate for seamless loop -->
+            <span class="ticker-item"><span class="ticker-dot"></span>Wasserdicht bis 300 m</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>GPS-Navigation</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>1 Uhr = 1 kg Meeresplastik</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Titan Grade 5</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>3 Jahre Garantie</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Chronograph</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>ISO 6425 zertifiziert</span>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section id="features" class="features-section">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Features</span>
+            <h2 class="section-title">Präzision.<br>Ohne Kompromiss.</h2>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card reveal">
+                <div class="feature-stat">300m</div>
+                <div class="feature-stat-sub">Wasserdichtheit</div>
+                <h3>Tief. Tiefer. Harrison.</h3>
+                <p>ISO 6425 zertifiziert für professionelle Taucher. Dichtungsringe aus Fluorkautschuk, verschraubte Krone – hergestellt für das Meer.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-stat">GPS</div>
+                <div class="feature-stat-sub">Multi-Satellit</div>
+                <h3>Immer auf Kurs.</h3>
+                <p>Empfängt GPS, GLONASS und Galileo gleichzeitig. Präzise Positionierung auf offener See – selbst bei bewölktem Himmel.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-stat">Ti</div>
+                <div class="feature-stat-sub">Titan Grade 5</div>
+                <h3>Leichter als Stahl. Härter als beides.</h3>
+                <p>Luftfahrt-Titan, Saphirglas, keine Kompromisse. Das Gehäuse hält Salzwasser, Druck und Zeit stand – ohne Gewicht zu verlieren.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERPACKUNG -->
+    <section class="packaging-section reveal">
+        <div class="section-header">
+            <span class="section-eyebrow">Verpackung</span>
+            <h2 class="section-title">Verpackt.<br>Wie es sich gehört.</h2>
+            <p class="section-intro">Robuste Präzisionsbox für eine robuste Präzisionsuhr – klick rein.</p>
+        </div>
+        <div class="packaging-showcase">
+            <div class="box-flip" id="boxFlip">
+                <div class="box-flip-inner">
+                    <div class="box-face box-front">
+                        <img src="maritime_geschlossen.jpeg" alt="Maritime Watch Verpackung geschlossen">
+                        <p class="box-label">Verpackung geschlossen</p>
+                    </div>
+                    <div class="box-face box-back">
+                        <img src="maritime_offen.jpeg" alt="Maritime Watch Verpackung geöffnet">
+                        <p class="box-label">Verpackung geöffnet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="packaging-info reveal">
+                <div class="feature-stat">100%</div>
+                <div class="feature-stat-sub">Premium-Verpackung</div>
+                <h3>Unboxing, das bleibt.</h3>
+                <p>Die Harrison Maritime Watch kommt in einer hochwertigen Box – designed für den ersten Eindruck und gebaut zum Aufbewahren. 100 % nachhaltige Materialien, plastikfrei und vollständig recycelbar.</p>
+                <button class="box-toggle-btn" id="boxToggleBtn">Box öffnen ↗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRAFTSMANSHIP -->
+    <section class="features-section craft-section">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Qualität</span>
+            <h2 class="section-title">Handwerk.<br>Das bleibt.</h2>
+            <p class="section-intro">Hinter jedem Detail der Harrison Maritime Watch steckt ein Versprechen: Qualität, die nicht kleiner wird, je länger man hinschaut.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card reveal">
+                <div class="card-icon">🔬</div>
+                <div class="feature-stat" style="font-size:3rem;">100%</div>
+                <div class="feature-stat-sub">Labor-geprüft</div>
+                <h3>Jede Uhr. Einzeln getestet.</h3>
+                <p>Vor Auslieferung wird jede Harrison Maritime Watch in unserem Drucktank auf exakte Wasserdichtigkeit geprüft. Kein Kompromiss.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="card-icon">♻️</div>
+                <div class="feature-stat" style="font-size:3rem;">1 kg</div>
+                <div class="feature-stat-sub">Meeresplastik pro Uhr</div>
+                <h3>1 Uhr. 1 kg weniger im Meer.</h3>
+                <p>Jede verkaufte Harrison Maritime Watch finanziert die Entfernung von 1 kg Plastikmüll aus dem Ozean – in Partnerschaft mit Ocean Conservancy. Kein Offset. Echte Wirkung.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="card-icon">🛡️</div>
+                <div class="feature-stat" style="font-size:3rem;">3 J.</div>
+                <div class="feature-stat-sub">Full-Service</div>
+                <h3>Service, der mitgeht.</h3>
+                <p>3 Jahre umfassende Garantie. Sofortiger Austausch bei Defekt. Unser Service-Team ist für dich da – weltweit, ohne Wenn und Aber.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECS -->
+    <section id="specs" class="specs-section">
+        <div class="specs-container">
+            <div class="specs-text reveal">
+                <h3>Titan. Tiefe. Kein Kompromiss.</h3>
+                <p>Das Gehäuse aus Luftfahrt-Titan (Grade 5) mit kratzfestem Saphirglas und verschraubter Krone taucht bis 300 Meter – ISO 6425 zertifiziert, gefertigt für das Meer.</p>
+                <button class="btn-specs open-cart-btn">Für 135 € sichern</button>
+            </div>
+            <div class="reveal">
+                <ul class="spec-list">
+                    <li><span>Material</span><strong>Titan (Grade 5)</strong></li>
+                    <li><span>Display</span><strong>Kratzfestes Saphirglas</strong></li>
+                    <li><span>Wasserdichtheit</span><strong>300 m (ISO 6425)</strong></li>
+                    <li><span>Navigation</span><strong>GPS, GLONASS, Galileo</strong></li>
+                    <li><span>Akku</span><strong>Bis zu 48 Stunden</strong></li>
+                    <li><span>Temperatur</span><strong>−20 °C bis 60 °C</strong></li>
+                    <li><span>Netzwerk</span><strong>LTE, WLAN, Bluetooth 5.3</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERSPRECHEN -->
+    <section id="pledge" class="pledge-section reveal">
+        <div class="pledge-content">
+            <div class="pledge-icon">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2196c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h2>Unser Versprechen.<br>Dein Vertrauen.</h2>
+            <p>Sollte deine Harrison Maritime Watch innerhalb der ersten 3 Jahre einen technischen Defekt aufweisen, erhältst du sofort ein Neugerät – und wir holen 1 weiteres kg Plastik aus dem Meer.</p>
+            <p>Präzision, die hält. Service, der steht. Ozeane, die sauberer werden.</p>
+            <div class="pledge-badges">
+                <span class="pledge-badge">⚓ 3 Jahre Garantie</span>
+                <span class="pledge-badge">🌊 1 kg aus dem Ozean</span>
+                <span class="pledge-badge">♻️ Ocean Conservancy</span>
+                <span class="pledge-badge">🛡️ Sofort-Austausch</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 HARRISON CORP. Maritime Edition.</p>
+        <div class="footer-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
+    </footer>
+
+    <script>
+        // ── WARENKORB ──
+        const cartSidebar  = document.getElementById('cartSidebar');
+        const cartOverlay  = document.getElementById('cartOverlay');
+        const openCartBtns = document.querySelectorAll('.open-cart-btn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+
+        function openCart()  { cartSidebar.classList.add('open');    cartOverlay.classList.add('open'); }
+        function closeCart() { cartSidebar.classList.remove('open'); cartOverlay.classList.remove('open'); }
+
+        openCartBtns.forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); openCart(); }));
+        closeCartBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+
+        // ── HAMBURGER ──
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav    = document.getElementById('mobileNav');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('open');
+                mobileNav.classList.remove('open');
+            });
+        });
+
+        // ── SCROLL REVEAL ──
+        function reveal() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // ── BOX FLIP ──
+        const boxFlip = document.getElementById('boxFlip');
+        const boxToggleBtn = document.getElementById('boxToggleBtn');
+
+        function toggleBox() {
+            boxFlip.classList.toggle('flipped');
+            boxToggleBtn.textContent = boxFlip.classList.contains('flipped') ? 'Box schließen ↙' : 'Box öffnen ↗';
+        }
+
+        boxFlip.addEventListener('click', toggleBox);
+        boxToggleBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleBox(); });
+    </script>
+</body>
+</html>
