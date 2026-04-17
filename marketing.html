@@ -132,9 +132,39 @@
             margin: 0 auto;
         }
 
-        /* ── VIDEO PLACEHOLDER ───────────────────────── */
+        /* ── DIVIDER ─────────────────────────────────── */
+        .section-divider {
+            padding: 80px 5% 0;
+            text-align: center;
+        }
+        .section-divider .divider-eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--yellow-700);
+            background: var(--yellow-100);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .section-divider h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--yellow-900);
+            line-height: 1.15;
+        }
+        .section-divider h2 span {
+            color: var(--yellow-600);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* ── VIDEO ───────────────────────────────────── */
         .video-section {
-            padding: 0 5% 100px;
+            padding: 48px 5% 80px;
         }
 
         .video-wrapper {
@@ -142,30 +172,11 @@
             margin: 0 auto;
         }
 
-        .video-placeholder {
+        .video-wrapper video {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            background: var(--yellow-900);
             border-radius: 20px;
             box-shadow: 0 16px 64px rgba(61, 40, 0, 0.16);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            color: rgba(255,255,255,0.35);
-        }
-
-        .video-placeholder-icon {
-            font-size: 3.5rem;
-            opacity: 0.4;
-        }
-
-        .video-placeholder p {
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            display: block;
         }
 
         .video-caption {
@@ -413,36 +424,6 @@
         <p>Für unsere Mitarbeiterinnen und Mitarbeiter – von GJ14 an. Mehr Gehalt, mehr Mobilität, mehr Lebensqualität. Und ja – auch eine Katze.</p>
     </section>
 
-    <!-- VIDEO PLACEHOLDER -->
-    <section class="video-section">
-        <div class="video-wrapper reveal">
-            <div class="video-placeholder">
-                <span class="video-placeholder-icon">🎬</span>
-                <p>Kampagnenvideo folgt</p>
-            </div>
-            <p class="video-caption">Harrison Solar Watch — Arbeitgeber-Kampagne Geschäftsjahr 14</p>
-        </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="gallery-section">
-        <h2 class="reveal">Produkt &amp; Verpackung</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal">
-                <img src="solar_box_zu.jpeg" alt="Solar Watch Verpackung geschlossen">
-                <span class="gallery-label">Verpackung geschlossen</span>
-            </div>
-            <div class="gallery-item reveal">
-                <img src="solarwatch.jpeg" alt="Harrison Solar Watch">
-                <span class="gallery-label">Harrison Solar Watch</span>
-            </div>
-            <div class="gallery-item reveal">
-                <img src="solar_box_auf.jpeg" alt="Solar Watch Verpackung geöffnet">
-                <span class="gallery-label">Verpackung geöffnet</span>
-            </div>
-        </div>
-    </section>
-
     <!-- BENEFITS -->
     <section class="benefits-section">
         <div class="benefits-header reveal">
@@ -546,6 +527,39 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- PRODUCT MARKETING -->
+    <section class="section-divider reveal">
+        <span class="divider-eyebrow">Produkt-Highlight GJ14</span>
+        <h2>Die Harrison<br><span>Solar Watch.</span></h2>
+    </section>
+
+    <section class="video-section">
+        <div class="video-wrapper reveal">
+            <video controls autoplay muted loop playsinline>
+                <source src="HarrisonSolarAd.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Harrison Solar Watch — Produktvideo GJ14</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="reveal">Produkt &amp; Verpackung</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="solar_box_zu.jpeg" alt="Solar Watch Verpackung geschlossen">
+                <span class="gallery-label">Verpackung geschlossen</span>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="solarwatch.jpeg" alt="Harrison Solar Watch">
+                <span class="gallery-label">Harrison Solar Watch</span>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="solar_box_auf.jpeg" alt="Solar Watch Verpackung geöffnet">
+                <span class="gallery-label">Verpackung geöffnet</span>
+            </div>
         </div>
     </section>
 
