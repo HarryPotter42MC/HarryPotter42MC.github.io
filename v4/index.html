@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARRISON CORP. | Turtle Watch</title>
+    <title>HARRISON CORP. | Solar Watch</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <style>
         :root {
-            --green-900: #1a2010;
-            --green-800: #2d3a18;
-            --green-700: #414833;
-            --green-600: #596240;
-            --green-500: #87a73a;
-            --green-400: #9ec044;
-            --green-300: #b8d46e;
-            --green-200: #cedd9e;
-            --green-100: #e3eccc;
-            --green-50:  #f2f5e8;
+            --yellow-900: #3d2800;
+            --yellow-800: #7a4f00;
+            --yellow-700: #b37300;
+            --yellow-600: #d97706;
+            --yellow-500: #f59e0b;
+            --yellow-400: #fbbf24;
+            --yellow-300: #fcd34d;
+            --yellow-200: #fde68a;
+            --yellow-100: #fef3c7;
+            --yellow-50:  #fffbeb;
+            --blue-accent: #2196c4;
             --white:    #ffffff;
             --text-dark: #1f2937;
             --text-muted:#78716c;
-            --border:    #cedd9e;
+            --border:    #fde68a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--green-50);
+            background-color: var(--yellow-50);
             color: var(--text-dark);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -37,7 +38,7 @@
         .lang-modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(26,32,16,0.55);
+            background: rgba(61,40,0,0.55);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             z-index: 9999;
@@ -53,13 +54,13 @@
             text-align: center;
             max-width: 460px;
             width: 90%;
-            box-shadow: 0 32px 80px rgba(26,32,16,0.18);
+            box-shadow: 0 32px 80px rgba(61,40,0,0.18);
         }
         .lang-modal-logo {
             font-size: 13px;
             font-weight: 800;
             letter-spacing: 2.5px;
-            color: var(--green-700);
+            color: var(--yellow-700);
             text-transform: uppercase;
             margin-bottom: 28px;
             display: block;
@@ -67,7 +68,7 @@
         .lang-modal h2 {
             font-size: 1.55rem;
             font-weight: 800;
-            color: var(--green-900);
+            color: var(--yellow-900);
             letter-spacing: -0.02em;
             line-height: 1.2;
             margin-bottom: 10px;
@@ -86,27 +87,27 @@
         .lang-choice-btn {
             flex: 1;
             padding: 22px 12px 18px;
-            border: 2px solid var(--green-200);
+            border: 2px solid var(--yellow-200);
             border-radius: 18px;
-            background: var(--green-50);
+            background: var(--yellow-50);
             cursor: pointer;
             transition: all 0.22s ease;
             font-family: inherit;
         }
         .lang-choice-btn:hover {
-            border-color: var(--green-500);
-            background: var(--green-100);
+            border-color: var(--yellow-500);
+            background: var(--yellow-100);
             transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(135,167,58,0.15);
+            box-shadow: 0 8px 24px rgba(245,158,11,0.15);
         }
         .lang-choice-btn .flag { font-size: 2.8rem; display: block; margin-bottom: 10px; line-height: 1; }
-        .lang-choice-btn .lang-name { font-size: 1rem; font-weight: 700; color: var(--green-900); display: block; }
+        .lang-choice-btn .lang-name { font-size: 1rem; font-weight: 700; color: var(--yellow-900); display: block; }
         .lang-choice-btn .lang-sub { font-size: 0.74rem; color: var(--text-muted); margin-top: 3px; display: block; letter-spacing: 0.03em; }
 
         /* ── LANG TOGGLE BUTTON ──────────────────────── */
         .btn-lang {
             background: transparent;
-            border: 1.5px solid var(--green-200);
+            border: 1.5px solid var(--yellow-200);
             border-radius: 20px;
             padding: 6px 11px;
             font-size: 1.15rem;
@@ -116,7 +117,7 @@
             display: flex;
             align-items: center;
         }
-        .btn-lang:hover { border-color: var(--green-400); background: var(--green-100); }
+        .btn-lang:hover { border-color: var(--yellow-400); background: var(--yellow-100); }
 
         /* ── NAV ─────────────────────────────────────── */
         nav {
@@ -127,17 +128,17 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 5%;
-            background: rgba(242,245,232,0.90);
+            background: rgba(255, 251, 235, 0.90);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(206,221,158,0.7);
+            border-bottom: 1px solid rgba(253, 230, 138, 0.7);
             z-index: 1000;
         }
         .logo-text {
             font-size: 17px;
             font-weight: 800;
             letter-spacing: 2px;
-            color: var(--green-900);
+            color: var(--yellow-900);
             text-transform: uppercase;
             display: block;
         }
@@ -145,7 +146,7 @@
             font-size: 10px;
             font-weight: 500;
             letter-spacing: 3.5px;
-            color: var(--green-600);
+            color: var(--yellow-600);
             text-transform: uppercase;
             display: block;
             margin-top: 2px;
@@ -159,10 +160,10 @@
             letter-spacing: 0.02em;
             transition: color 0.25s;
         }
-        .nav-links a:hover { color: var(--green-900); }
+        .nav-links a:hover { color: var(--yellow-900); }
         .btn-buy {
-            background-color: var(--green-800);
-            color: #ffffff;
+            background-color: var(--yellow-500);
+            color: var(--yellow-900);
             padding: 10px 24px;
             border: none;
             border-radius: 30px;
@@ -172,7 +173,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .btn-buy:hover { background-color: var(--green-700); transform: scale(1.02); }
+        .btn-buy:hover { background-color: var(--yellow-400); transform: scale(1.02); }
 
         /* ── HAMBURGER ───────────────────────────────── */
         .hamburger {
@@ -186,12 +187,12 @@
             border-radius: 8px;
             transition: background 0.2s;
         }
-        .hamburger:hover { background: rgba(135,167,58,0.10); }
+        .hamburger:hover { background: rgba(245,158,11,0.10); }
         .hamburger span {
             display: block;
             width: 22px;
             height: 2px;
-            background: var(--green-800);
+            background: var(--yellow-800);
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -205,7 +206,7 @@
             position: fixed;
             top: 61px; left: 0;
             width: 100%;
-            background: rgba(242,245,232,0.97);
+            background: rgba(255,251,235,0.97);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -227,7 +228,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(26,32,16,0.45);
+            background: rgba(61,40,0,0.45);
             z-index: 1999;
             backdrop-filter: blur(3px);
         }
@@ -241,7 +242,7 @@
             height: 100vh;
             background: rgba(255,255,255,0.98);
             backdrop-filter: blur(20px);
-            box-shadow: -8px 0 40px rgba(26,32,16,0.10);
+            box-shadow: -8px 0 40px rgba(61,40,0,0.10);
             z-index: 2000;
             padding: 40px;
             transition: right 0.5s cubic-bezier(0.165,0.84,0.44,1);
@@ -259,7 +260,7 @@
         }
         .cart-header h2 { font-weight: 700; font-size: 1.4rem; color: var(--text-dark); }
         .close-cart {
-            background: var(--green-50);
+            background: var(--yellow-50);
             border: none;
             color: var(--text-dark);
             width: 36px; height: 36px;
@@ -269,7 +270,7 @@
             display: flex; align-items: center; justify-content: center;
             transition: background 0.2s;
         }
-        .close-cart:hover { background: var(--green-100); }
+        .close-cart:hover { background: var(--yellow-100); }
         .cart-item {
             display: flex;
             gap: 20px;
@@ -279,8 +280,8 @@
         .cart-item-details h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
         .cart-edition-badge {
             display: inline-block;
-            background: var(--green-100);
-            color: var(--green-700);
+            background: var(--yellow-100);
+            color: var(--yellow-700);
             font-size: 0.68rem;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -290,13 +291,13 @@
             margin-bottom: 6px;
         }
         .cart-note {
-            background: var(--green-50);
-            border: 1px solid var(--green-200);
+            background: var(--yellow-50);
+            border: 1px solid var(--yellow-200);
             border-radius: 12px;
             padding: 12px 16px;
             margin: 20px 0;
             font-size: 0.85rem;
-            color: var(--green-700);
+            color: var(--yellow-700);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -314,8 +315,8 @@
         .btn-checkout {
             width: 100%;
             padding: 16px;
-            background: var(--green-800);
-            color: #ffffff;
+            background: var(--yellow-500);
+            color: var(--yellow-900);
             border: none;
             border-radius: 14px;
             font-size: 1rem;
@@ -324,7 +325,7 @@
             letter-spacing: 0.03em;
             transition: background 0.3s;
         }
-        .btn-checkout:hover { background: var(--green-700); }
+        .btn-checkout:hover { background: var(--yellow-400); }
 
         /* ── HERO ────────────────────────────────────── */
         .hero {
@@ -337,10 +338,10 @@
             overflow: hidden;
             background:
                 linear-gradient(to right,
-                    rgba(26,32,16,0.90) 0%,
-                    rgba(26,32,16,0.60) 55%,
-                    rgba(26,32,16,0.28) 100%),
-                url('https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=2000&q=80')
+                    rgba(61,40,0,0.88) 0%,
+                    rgba(61,40,0,0.58) 55%,
+                    rgba(61,40,0,0.28) 100%),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80')
                 center / cover no-repeat;
             background-attachment: fixed;
         }
@@ -368,7 +369,7 @@
         }
         .product-eyebrow {
             font-weight: 500;
-            color: var(--green-300);
+            color: var(--yellow-300);
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 0.78rem;
@@ -381,7 +382,7 @@
             content: '';
             display: block;
             width: 28px; height: 1px;
-            background: var(--green-300);
+            background: var(--yellow-300);
         }
         .hero-text h1 {
             font-size: 4.6rem;
@@ -391,7 +392,7 @@
             margin-bottom: 28px;
             color: #fff;
         }
-        .hero-text h1 span { color: var(--green-300); font-weight: 200; font-style: italic; }
+        .hero-text h1 span { color: var(--yellow-300); font-weight: 200; font-style: italic; }
         .hero-text p {
             font-size: 1.1rem;
             color: rgba(255,255,255,0.65);
@@ -403,8 +404,8 @@
         .hero-cta-group { display: flex; align-items: center; gap: 28px; }
         .price-tag { font-size: 1.9rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
         .btn-hero {
-            background: var(--green-800);
-            color: #ffffff;
+            background: var(--yellow-500);
+            color: var(--yellow-900);
             padding: 15px 40px;
             border: none;
             border-radius: 40px;
@@ -414,25 +415,25 @@
             transition: all 0.3s ease;
             letter-spacing: 0.02em;
         }
-        .btn-hero:hover { background: var(--green-700); transform: scale(1.03); }
+        .btn-hero:hover { background: var(--yellow-400); transform: scale(1.03); }
 
         /* ── TICKER ──────────────────────────────────── */
         .ticker {
-            background: var(--green-800);
+            background: var(--yellow-800);
             padding: 18px 0;
             overflow: hidden;
             white-space: nowrap;
         }
         .ticker-track {
             display: inline-flex;
+            gap: 60px;
             animation: ticker 22s linear infinite;
         }
         .ticker-item {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding-right: 60px;
-            color: var(--green-200);
+            color: var(--yellow-200);
             font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -440,7 +441,7 @@
         }
         .ticker-dot {
             width: 4px; height: 4px;
-            background: var(--green-400);
+            background: var(--yellow-400);
             border-radius: 50%;
             flex-shrink: 0;
         }
@@ -450,14 +451,14 @@
         }
 
         /* ── FEATURES SECTION ────────────────────────── */
-        .features-section { padding: 120px 5%; background: var(--green-50); }
+        .features-section { padding: 120px 5%; background: var(--yellow-50); }
         .section-header { text-align: center; margin-bottom: 72px; }
         .section-eyebrow {
             font-size: 0.72rem;
             font-weight: 600;
             letter-spacing: 3.5px;
             text-transform: uppercase;
-            color: var(--green-600);
+            color: var(--yellow-600);
             margin-bottom: 14px;
             display: block;
         }
@@ -468,7 +469,7 @@
             background: var(--white);
             border-radius: 28px;
             padding: 48px 40px;
-            border: 1px solid var(--green-100);
+            border: 1px solid var(--yellow-100);
             transition: transform 0.4s cubic-bezier(0.165,0.84,0.44,1), box-shadow 0.4s;
             position: relative;
             overflow: hidden;
@@ -478,14 +479,14 @@
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--green-400), var(--green-600));
+            background: linear-gradient(90deg, var(--yellow-400), var(--yellow-600));
             opacity: 0;
             transition: opacity 0.3s;
         }
-        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(26,32,16,0.07); }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(61,40,0,0.07); }
         .feature-card:hover::before { opacity: 1; }
-        .feature-stat { font-size: 4.8rem; font-weight: 900; color: var(--green-700); letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; }
-        .feature-stat-sub { font-size: 0.75rem; font-weight: 600; color: var(--green-600); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
+        .feature-stat { font-size: 4.8rem; font-weight: 900; color: var(--yellow-700); letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; }
+        .feature-stat-sub { font-size: 0.75rem; font-weight: 600; color: var(--yellow-600); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
         .feature-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
         .feature-card p { color: var(--text-muted); line-height: 1.75; font-size: 0.92rem; }
 
@@ -495,8 +496,8 @@
         .specs-text h3 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 22px; color: var(--text-dark); line-height: 1.2; }
         .specs-text p { color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin-bottom: 36px; }
         .btn-specs {
-            background: var(--green-800);
-            color: #ffffff;
+            background: var(--yellow-500);
+            color: var(--yellow-900);
             padding: 14px 34px;
             border: none;
             border-radius: 30px;
@@ -506,27 +507,27 @@
             transition: all 0.3s;
             letter-spacing: 0.02em;
         }
-        .btn-specs:hover { background: var(--green-700); transform: scale(1.02); }
-        .spec-list { list-style: none; background: var(--green-50); padding: 36px; border-radius: 24px; border: 1px solid var(--green-100); }
-        .spec-list li { padding: 17px 0; border-bottom: 1px solid var(--green-100); display: flex; justify-content: space-between; align-items: center; }
+        .btn-specs:hover { background: var(--yellow-400); transform: scale(1.02); }
+        .spec-list { list-style: none; background: var(--yellow-50); padding: 36px; border-radius: 24px; border: 1px solid var(--yellow-100); }
+        .spec-list li { padding: 17px 0; border-bottom: 1px solid var(--yellow-100); display: flex; justify-content: space-between; align-items: center; }
         .spec-list li:last-child { border-bottom: none; padding-bottom: 0; }
         .spec-list li span { color: var(--text-muted); font-size: 0.88rem; }
         .spec-list li strong { color: var(--text-dark); font-weight: 600; font-size: 0.92rem; text-align: right; max-width: 60%; }
 
         /* ── PACKAGING ──────────────────────────────── */
-        .packaging-section { padding: 100px 5%; background: var(--white); border-top: 1px solid var(--green-100); }
+        .packaging-section { padding: 100px 5%; background: var(--white); border-top: 1px solid var(--yellow-100); }
         .packaging-showcase { display: flex; align-items: center; gap: 64px; max-width: 1200px; margin: 60px auto 0; flex-wrap: wrap; justify-content: center; }
         .box-flip { width: 460px; height: 460px; perspective: 1000px; cursor: pointer; flex-shrink: 0; }
         .box-flip-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
         .box-flip.flipped .box-flip-inner { transform: rotateY(180deg); }
-        .box-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,32,16,0.10); }
+        .box-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(61,40,0,0.10); }
         .box-face img { width: 100%; height: 100%; object-fit: cover; }
         .box-back { transform: rotateY(180deg); }
         .box-label {
             position: absolute;
             bottom: 14px; left: 50%;
             transform: translateX(-50%);
-            background: rgba(26,32,16,0.65);
+            background: rgba(61,40,0,0.65);
             color: #fff;
             font-size: 12px;
             font-weight: 500;
@@ -538,8 +539,8 @@
         .packaging-info { max-width: 440px; }
         .box-toggle-btn {
             margin-top: 28px;
-            background: var(--green-800);
-            color: #ffffff;
+            background: var(--yellow-500);
+            color: var(--yellow-900);
             border: none;
             border-radius: 30px;
             padding: 12px 28px;
@@ -549,7 +550,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .box-toggle-btn:hover { background: var(--green-700); transform: scale(1.02); }
+        .box-toggle-btn:hover { background: var(--yellow-400); transform: scale(1.02); }
         @media (max-width: 900px) {
             .packaging-showcase { gap: 40px; }
             .box-flip { width: 280px; height: 280px; }
@@ -557,13 +558,13 @@
         @media (max-width: 600px) { .box-flip { width: 100%; height: 280px; } }
 
         /* ── CRAFTSMANSHIP SECTION ───────────────────── */
-        .craft-section { background: var(--green-50); border-top: 1px solid var(--green-200); padding-bottom: 60px; }
+        .craft-section { background: var(--yellow-50); border-top: 1px solid var(--yellow-200); padding-bottom: 60px; }
         .craft-section .feature-card { background: var(--white); }
         .card-icon { font-size: 2.8rem; line-height: 1; margin-bottom: 10px; }
 
         /* ── PLEDGE ──────────────────────────────────── */
         .pledge-section {
-            background: var(--green-800);
+            background: var(--yellow-800);
             padding: 120px 5%;
             text-align: center;
             position: relative;
@@ -574,14 +575,14 @@
             position: absolute;
             top: -40%; left: -10%;
             width: 120%; height: 200%;
-            background: radial-gradient(ellipse at center, rgba(135,167,58,0.12) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(245,158,11,0.12) 0%, transparent 70%);
             pointer-events: none;
         }
         .pledge-content { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
         .pledge-icon {
             width: 70px; height: 70px;
-            background: rgba(135,167,58,0.15);
-            border: 1px solid rgba(135,167,58,0.30);
+            background: rgba(245,158,11,0.15);
+            border: 1px solid rgba(245,158,11,0.30);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 30px;
@@ -606,62 +607,14 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* ── FOOTER ──────────────────────────────────── */
-        footer { background: var(--green-900); text-align: center; padding: 44px 20px; color: rgba(255,255,255,0.35); font-size: 0.82rem; letter-spacing: 0.05em; }
+        footer { background: var(--yellow-900); text-align: center; padding: 44px 20px; color: rgba(255,255,255,0.35); font-size: 0.82rem; letter-spacing: 0.05em; }
         .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 14px; }
         .footer-links a { color: rgba(255,255,255,0.25); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
         .footer-links a:hover { color: rgba(255,255,255,0.65); }
 
         /* ── NAV MARKETING LINK ──────────────────────── */
-        .nav-divider { color: var(--green-300); font-weight: 300; user-select: none; }
-        .nav-marketing { color: var(--green-600) !important; font-weight: 600 !important; }
-
-        /* ── TURTLE PARADE ───────────────────────────── */
-        .turtle-parade {
-            height: 110px;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(to bottom, var(--green-50) 0%, var(--green-100) 65%, var(--green-200) 100%);
-            border-top: 1px solid var(--green-100);
-            border-bottom: 1px solid var(--green-200);
-        }
-        .t-shell {
-            position: absolute;
-            bottom: var(--b, 12px);
-            width: var(--w, 60px);
-            animation: t-walk var(--s, 9s) linear var(--d, 0s) infinite;
-            animation-play-state: paused;
-            will-change: transform;
-            opacity: 0;
-        }
-        .t-wobble {
-            animation: t-wobble 0.80s ease-in-out infinite alternate;
-            animation-play-state: paused;
-        }
-        .t-leg-f,
-        .t-leg-b {
-            transform-box: fill-box;
-            transform-origin: 50% 20%;
-            animation: t-leg 0.40s ease-in-out infinite alternate;
-            animation-play-state: paused;
-        }
-        .t-leg-b { animation-direction: alternate-reverse; }
-        .turtle-parade.active .t-shell,
-        .turtle-parade.active .t-wobble,
-        .turtle-parade.active .t-leg-f,
-        .turtle-parade.active .t-leg-b { animation-play-state: running; }
-        @keyframes t-walk {
-            from { transform: translateX(-120px); opacity: 1; }
-            to   { transform: translateX(calc(100vw + 130px)); opacity: 1; }
-        }
-        @keyframes t-wobble {
-            from { transform: translateY(0) rotate(-1.2deg); }
-            to   { transform: translateY(-2px) rotate(1.2deg); }
-        }
-        @keyframes t-leg {
-            from { transform: rotate(-18deg); }
-            to   { transform: rotate(18deg); }
-        }
-        .t-shell svg { width: 100%; height: auto; display: block; }
+        .nav-divider { color: var(--yellow-300); font-weight: 300; user-select: none; }
+        .nav-marketing { color: var(--yellow-600) !important; font-weight: 600 !important; }
 
         /* ── RESPONSIVE ──────────────────────────────── */
         @media (max-width: 900px) {
@@ -679,21 +632,6 @@
             .cart-sidebar { width: 100%; padding: 24px; }
             .pledge-content h2 { font-size: 2.1rem; }
         }
-        #cursor-turtle {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100px;
-            pointer-events: none;
-            z-index: 3000;
-            will-change: transform;
-            transform: translate(-300px, -300px);
-        }
-        .ct-leg-f, .ct-leg-b {
-            transform-box: fill-box;
-            transform-origin: 50% 20%;
-            animation: t-leg 0.55s ease-in-out infinite alternate;
-        }
-        .ct-leg-b { animation-direction: alternate-reverse; }
     </style>
 </head>
 <body>
@@ -723,7 +661,7 @@
     <nav>
         <div>
             <span class="logo-text">Harrison Corp.</span>
-            <span class="logo-sub">Turtle Edition</span>
+            <span class="logo-sub">Solar Edition</span>
         </div>
         <div class="nav-links">
             <a href="#features" data-i18n="nav-features">Features</a>
@@ -732,7 +670,7 @@
             <a href="#specs" data-i18n="nav-specs">Technik</a>
             <a href="#pledge" data-i18n="nav-pledge">Nachhaltigkeit</a>
             <span class="nav-divider">|</span>
-            <a href="marketing.html" class="nav-marketing" data-i18n="nav-employer">Marketing</a>
+            <a href="marketing.html" class="nav-marketing" data-i18n="nav-employer">Arbeitgeber</a>
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
             <button class="btn-lang" id="langToggleBtn" title="Switch language" onclick="toggleLang()">🇬🇧</button>
@@ -750,7 +688,7 @@
         <a href="#quality" class="mobile-nav-link" data-i18n="nav-quality">Qualität</a>
         <a href="#specs" class="mobile-nav-link" data-i18n="nav-specs">Technik</a>
         <a href="#pledge" class="mobile-nav-link" data-i18n="nav-pledge">Nachhaltigkeit</a>
-        <a href="marketing.html" class="mobile-nav-link nav-marketing" data-i18n="nav-employer">Marketing</a>
+        <a href="marketing.html" class="mobile-nav-link nav-marketing" data-i18n="nav-employer">Arbeitgeber</a>
     </div>
 
     <!-- CART OVERLAY -->
@@ -763,19 +701,19 @@
             <button class="close-cart" id="closeCartBtn">✕</button>
         </div>
         <div class="cart-item">
-            <img src="turtle_watch.jpeg" alt="Harrison Turtle Watch" style="width:90px;height:90px;object-fit:contain;border-radius:16px;background:var(--green-50);flex-shrink:0">
+            <img src="solarwatch.jpeg" alt="Harrison Solar Watch" style="width:90px;height:90px;object-fit:contain;border-radius:16px;background:var(--yellow-50);flex-shrink:0">
             <div class="cart-item-details">
-                <span class="cart-edition-badge">Turtle</span>
-                <h3>Harrison Turtle Watch</h3>
-                <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:8px;" data-i18n="cart-details">Gehäuse: Titan · Rifle Green</p>
-                <p style="font-weight:800;color:var(--text-dark);font-size:1rem;" data-i18n="price">162,50 €</p>
+                <span class="cart-edition-badge">Solar</span>
+                <h3>Harrison Solar Watch</h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:8px;" data-i18n="cart-details">Gehäuse: Titan · Solarbetrieben</p>
+                <p style="font-weight:800;color:var(--text-dark);font-size:1rem;" data-i18n="price">175,00 €</p>
             </div>
         </div>
-        <div class="cart-note" data-i18n="cart-note">🐢 Jede Uhr rettet eine Schildkröte – direkt und messbar.</div>
+        <div class="cart-note" data-i18n="cart-note">☀️ Solarbetrieben – unbegrenzte Energie aus Tageslicht.</div>
         <div>
             <div class="cart-total">
                 <span data-i18n="cart-total-label">Gesamt</span>
-                <span data-i18n="price">162,50 €</span>
+                <span data-i18n="price">175,00 €</span>
             </div>
             <button class="btn-checkout" data-i18n="cart-checkout">Zur Kasse gehen</button>
             <p style="text-align:center;margin-top:14px;font-size:0.8rem;color:var(--text-muted);" data-i18n="cart-small">Inkl. MwSt. Kostenloser Expressversand.</p>
@@ -786,14 +724,14 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-image reveal active">
-                <img src="turtle_watch.jpeg" alt="Harrison Turtle Watch">
+                <img src="solarwatch.jpeg" alt="Harrison Solar Watch">
             </div>
             <div class="hero-text reveal active">
-                <span class="product-eyebrow" data-i18n="hero-eyebrow">Harrison Turtle Edition</span>
-                <h1 data-i18n="hero-h1">Eine Uhr.<br><span>Eine Schildkröte.</span></h1>
-                <p data-i18n="hero-p">Die Harrison Turtle Watch – für jede verkaufte Uhr rettet Harrison Corp. eine Meeresschildkröte. Titan-Gehäuse, Saphirglas, GPS. Rifle Green Edition.</p>
+                <span class="product-eyebrow" data-i18n="hero-eyebrow">Harrison Solar Edition</span>
+                <h1 data-i18n="hero-h1">Geladen von der<br><span>Sonne.</span></h1>
+                <p data-i18n="hero-p">Die Harrison Solar Watch läuft endlos – gespeist allein durch Tageslicht. Titan-Gehäuse, Saphirglas, GPS. Keine Kabel. Kein Limit.</p>
                 <div class="hero-cta-group">
-                    <span class="price-tag" data-i18n="price">162,50 €</span>
+                    <span class="price-tag" data-i18n="price">175,00 €</span>
                     <button class="btn-hero open-cart-btn" data-i18n="hero-btn">In den Warenkorb</button>
                 </div>
             </div>
@@ -803,73 +741,49 @@
     <!-- TICKER -->
     <div class="ticker">
         <div class="ticker-track">
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick1">1 Uhr = 1 Schildkröte</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick2">Titan Grade 5</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick3">10 ATM Wasserdicht</span></span>
-
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick5">3 Jahre Garantie</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick6">Kratzfestes Saphirglas</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick7">Rifle Green Edition</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick1">1 Uhr = 1 Schildkröte</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick2">Titan Grade 5</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick3">10 ATM Wasserdicht</span></span>
-
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick5">3 Jahre Garantie</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick6">Kratzfestes Saphirglas</span></span>
-            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick7">Rifle Green Edition</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick1">Solar-Ladezeit: 1 Stunde</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick2">6 Monate Akku im Energiesparmodus</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick3">Titan Grade 5</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick4">10 ATM Wasserdicht</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick5">GPS + GLONASS</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick6">3 Jahre Garantie</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick7">Kratzfestes Saphirglas</span></span>
+            <!-- duplicate for seamless loop -->
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick1">Solar-Ladezeit: 1 Stunde</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick2">6 Monate Akku im Energiesparmodus</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick3">Titan Grade 5</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick4">10 ATM Wasserdicht</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick5">GPS + GLONASS</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick6">3 Jahre Garantie</span></span>
+            <span class="ticker-item"><span class="ticker-dot"></span><span data-i18n="tick7">Kratzfestes Saphirglas</span></span>
         </div>
-    </div>
-
-    <!-- TURTLE PARADE -->
-    <div class="turtle-parade" id="turtleParade">
-
-        <div class="t-shell" style="--d:0s;--s:8.5s;--b:14px;--w:62px">
-            <div class="t-wobble"><svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg"><ellipse cx="35" cy="53" rx="21" ry="2" fill="#2d3a18" opacity="0.1"/><ellipse cx="20" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-b"/><ellipse cx="33" cy="37" rx="21" ry="12" fill="#6b8c3f"/><ellipse cx="31" cy="28" rx="19" ry="14" fill="#414833"/><ellipse cx="31" cy="28" rx="12" ry="8.5" fill="none" stroke="#2d3a18" stroke-width="0.9" opacity="0.45"/><line x1="31" y1="14" x2="31" y2="42" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="13" y1="28" x2="49" y2="28" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="15" y1="19" x2="47" y2="37" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><line x1="15" y1="37" x2="47" y2="19" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><ellipse cx="25" cy="21" rx="5" ry="3" fill="white" opacity="0.14" transform="rotate(-30 25 21)"/><ellipse cx="48" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-f"/><path d="M12 37 Q5 35 4 38 Q5 41 12 40 Z" fill="#6b8c3f"/><ellipse cx="53" cy="34" rx="6" ry="5" fill="#6b8c3f"/><circle cx="61" cy="26" r="12.5" fill="#7da244"/><circle cx="57" cy="30" r="4" fill="#f0a070" opacity="0.22"/><circle cx="65" cy="22" r="5" fill="white"/><circle cx="66" cy="21.5" r="3" fill="#1a2010"/><circle cx="67.5" cy="20.2" r="1.2" fill="white"/><circle cx="67" cy="27" r="1.3" fill="#5a7a30"/><path d="M57 32 Q61 36.5 65 32" stroke="#4a6828" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
-        </div>
-
-        <div class="t-shell" style="--d:1.4s;--s:10.2s;--b:20px;--w:50px">
-            <div class="t-wobble"><svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg"><ellipse cx="35" cy="53" rx="21" ry="2" fill="#2d3a18" opacity="0.1"/><ellipse cx="20" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-b"/><ellipse cx="33" cy="37" rx="21" ry="12" fill="#6b8c3f"/><ellipse cx="31" cy="28" rx="19" ry="14" fill="#414833"/><ellipse cx="31" cy="28" rx="12" ry="8.5" fill="none" stroke="#2d3a18" stroke-width="0.9" opacity="0.45"/><line x1="31" y1="14" x2="31" y2="42" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="13" y1="28" x2="49" y2="28" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="15" y1="19" x2="47" y2="37" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><line x1="15" y1="37" x2="47" y2="19" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><ellipse cx="25" cy="21" rx="5" ry="3" fill="white" opacity="0.14" transform="rotate(-30 25 21)"/><ellipse cx="48" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-f"/><path d="M12 37 Q5 35 4 38 Q5 41 12 40 Z" fill="#6b8c3f"/><ellipse cx="53" cy="34" rx="6" ry="5" fill="#6b8c3f"/><circle cx="61" cy="26" r="12.5" fill="#7da244"/><circle cx="57" cy="30" r="4" fill="#f0a070" opacity="0.22"/><circle cx="65" cy="22" r="5" fill="white"/><circle cx="66" cy="21.5" r="3" fill="#1a2010"/><circle cx="67.5" cy="20.2" r="1.2" fill="white"/><circle cx="67" cy="27" r="1.3" fill="#5a7a30"/><path d="M57 32 Q61 36.5 65 32" stroke="#4a6828" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
-        </div>
-
-        <div class="t-shell" style="--d:2.9s;--s:9.0s;--b:8px;--w:56px">
-            <div class="t-wobble"><svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg"><ellipse cx="35" cy="53" rx="21" ry="2" fill="#2d3a18" opacity="0.1"/><ellipse cx="20" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-b"/><ellipse cx="33" cy="37" rx="21" ry="12" fill="#6b8c3f"/><ellipse cx="31" cy="28" rx="19" ry="14" fill="#414833"/><ellipse cx="31" cy="28" rx="12" ry="8.5" fill="none" stroke="#2d3a18" stroke-width="0.9" opacity="0.45"/><line x1="31" y1="14" x2="31" y2="42" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="13" y1="28" x2="49" y2="28" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="15" y1="19" x2="47" y2="37" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><line x1="15" y1="37" x2="47" y2="19" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><ellipse cx="25" cy="21" rx="5" ry="3" fill="white" opacity="0.14" transform="rotate(-30 25 21)"/><ellipse cx="48" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-f"/><path d="M12 37 Q5 35 4 38 Q5 41 12 40 Z" fill="#6b8c3f"/><ellipse cx="53" cy="34" rx="6" ry="5" fill="#6b8c3f"/><circle cx="61" cy="26" r="12.5" fill="#7da244"/><circle cx="57" cy="30" r="4" fill="#f0a070" opacity="0.22"/><circle cx="65" cy="22" r="5" fill="white"/><circle cx="66" cy="21.5" r="3" fill="#1a2010"/><circle cx="67.5" cy="20.2" r="1.2" fill="white"/><circle cx="67" cy="27" r="1.3" fill="#5a7a30"/><path d="M57 32 Q61 36.5 65 32" stroke="#4a6828" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
-        </div>
-
-        <div class="t-shell" style="--d:4.5s;--s:11s;--b:22px;--w:44px">
-            <div class="t-wobble"><svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg"><ellipse cx="35" cy="53" rx="21" ry="2" fill="#2d3a18" opacity="0.1"/><ellipse cx="20" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-b"/><ellipse cx="33" cy="37" rx="21" ry="12" fill="#6b8c3f"/><ellipse cx="31" cy="28" rx="19" ry="14" fill="#414833"/><ellipse cx="31" cy="28" rx="12" ry="8.5" fill="none" stroke="#2d3a18" stroke-width="0.9" opacity="0.45"/><line x1="31" y1="14" x2="31" y2="42" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="13" y1="28" x2="49" y2="28" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="15" y1="19" x2="47" y2="37" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><line x1="15" y1="37" x2="47" y2="19" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><ellipse cx="25" cy="21" rx="5" ry="3" fill="white" opacity="0.14" transform="rotate(-30 25 21)"/><ellipse cx="48" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-f"/><path d="M12 37 Q5 35 4 38 Q5 41 12 40 Z" fill="#6b8c3f"/><ellipse cx="53" cy="34" rx="6" ry="5" fill="#6b8c3f"/><circle cx="61" cy="26" r="12.5" fill="#7da244"/><circle cx="57" cy="30" r="4" fill="#f0a070" opacity="0.22"/><circle cx="65" cy="22" r="5" fill="white"/><circle cx="66" cy="21.5" r="3" fill="#1a2010"/><circle cx="67.5" cy="20.2" r="1.2" fill="white"/><circle cx="67" cy="27" r="1.3" fill="#5a7a30"/><path d="M57 32 Q61 36.5 65 32" stroke="#4a6828" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
-        </div>
-
-        <div class="t-shell" style="--d:6.2s;--s:9.6s;--b:16px;--w:58px">
-            <div class="t-wobble"><svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg"><ellipse cx="35" cy="53" rx="21" ry="2" fill="#2d3a18" opacity="0.1"/><ellipse cx="20" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-b"/><ellipse cx="33" cy="37" rx="21" ry="12" fill="#6b8c3f"/><ellipse cx="31" cy="28" rx="19" ry="14" fill="#414833"/><ellipse cx="31" cy="28" rx="12" ry="8.5" fill="none" stroke="#2d3a18" stroke-width="0.9" opacity="0.45"/><line x1="31" y1="14" x2="31" y2="42" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="13" y1="28" x2="49" y2="28" stroke="#2d3a18" stroke-width="0.9" opacity="0.35"/><line x1="15" y1="19" x2="47" y2="37" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><line x1="15" y1="37" x2="47" y2="19" stroke="#2d3a18" stroke-width="0.7" opacity="0.25"/><ellipse cx="25" cy="21" rx="5" ry="3" fill="white" opacity="0.14" transform="rotate(-30 25 21)"/><ellipse cx="48" cy="46" rx="9" ry="3.5" fill="#6b8c3f" class="t-leg-f"/><path d="M12 37 Q5 35 4 38 Q5 41 12 40 Z" fill="#6b8c3f"/><ellipse cx="53" cy="34" rx="6" ry="5" fill="#6b8c3f"/><circle cx="61" cy="26" r="12.5" fill="#7da244"/><circle cx="57" cy="30" r="4" fill="#f0a070" opacity="0.22"/><circle cx="65" cy="22" r="5" fill="white"/><circle cx="66" cy="21.5" r="3" fill="#1a2010"/><circle cx="67.5" cy="20.2" r="1.2" fill="white"/><circle cx="67" cy="27" r="1.3" fill="#5a7a30"/><path d="M57 32 Q61 36.5 65 32" stroke="#4a6828" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
-        </div>
-
     </div>
 
     <!-- FEATURES -->
     <section id="features" class="features-section">
         <div class="section-header reveal">
             <span class="section-eyebrow" data-i18n="feat-eyebrow">Features</span>
-            <h2 class="section-title" data-i18n="feat-title">Titan. Rifle Green.<br>Ohne Kompromiss.</h2>
-            <p class="section-intro" data-i18n="feat-intro">Die Harrison Turtle Watch vereint zeitloses Design mit echtem Umweltengagement. Rifle Green. Titan. Und eine Schildkröte mehr.</p>
+            <h2 class="section-title" data-i18n="feat-title">Solar. Titan.<br>Ohne Kompromiss.</h2>
+            <p class="section-intro" data-i18n="feat-intro">Die Harrison Solar Watch vereint endlose Solarenergie mit dem robusten Erbe der Harrison-Linie.</p>
         </div>
         <div class="feature-grid">
             <div class="feature-card reveal">
-                <div class="feature-stat">🐢</div>
-                <div class="feature-stat-sub" data-i18n="feat1-sub">Turtle Rescue</div>
-                <h3 data-i18n="feat1-h3">Jede Uhr rettet eine.</h3>
-                <p data-i18n="feat1-p">Für jede verkaufte Harrison Turtle Watch rettet Harrison Corp. in Partnerschaft mit Meeresschutzorganisationen eine Meeresschildkröte – messbar und direkt.</p>
+                <div class="feature-stat">☀️</div>
+                <div class="feature-stat-sub" data-i18n="feat1-sub">Solarantrieb</div>
+                <h3 data-i18n="feat1-h3">Endlos Energie.</h3>
+                <p data-i18n="feat1-p">Ein einziger Sonnentag reicht, um die Solar Watch vollständig aufzuladen. Im Energiesparmodus hält sie bis zu 6 Monate – auch ohne direktes Licht.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="feature-stat">GPS</div>
                 <div class="feature-stat-sub" data-i18n="feat2-sub">Multi-Satellit</div>
                 <h3 data-i18n="feat2-h3">Immer verbunden.</h3>
-                <p data-i18n="feat2-p">GPS und GLONASS gleichzeitig. Präzise Navigation, ob in der Stadt oder in der Natur – überall auf der Welt einsatzbereit.</p>
+                <p data-i18n="feat2-p">GPS und GLONASS gleichzeitig. Präzise Navigation, ob in der Stadt oder in der Natur – gespeist durch reine Sonnenenergie.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="feature-stat">20+</div>
                 <div class="feature-stat-sub" data-i18n="feat3-sub">Sprachen</div>
                 <h3 data-i18n="feat3-h3">Weltweit zu Hause.</h3>
-                <p data-i18n="feat3-p">Die Harrison Turtle Watch spricht über 20 Sprachen – vollständig lokalisierte Oberfläche, Sprachbefehle und Benachrichtigungen. Überall sofort einsatzbereit.</p>
+                <p data-i18n="feat3-p">Die Harrison Solar Watch spricht über 20 Sprachen – vollständig lokalisierte Oberfläche, Sprachbefehle und Benachrichtigungen. Überall sofort einsatzbereit.</p>
             </div>
         </div>
     </section>
@@ -878,18 +792,18 @@
     <section id="packaging" class="packaging-section reveal">
         <div class="section-header">
             <span class="section-eyebrow" data-i18n="pack-eyebrow">Verpackung</span>
-            <h2 class="section-title" data-i18n="pack-title">Premium-Unboxing.<br>Grün verpackt.</h2>
-            <p class="section-intro" data-i18n="pack-intro">Nachhaltige Harrison-Verpackung in Rifle Green – plastikfrei, designed zum Aufbewahren.</p>
+            <h2 class="section-title" data-i18n="pack-title">Premium-Unboxing.<br>Sonnig verpackt.</h2>
+            <p class="section-intro" data-i18n="pack-intro">Hochwertige Harrison-Verpackung – nachhaltig, plastikfrei, designed zum Aufbewahren.</p>
         </div>
         <div class="packaging-showcase">
             <div class="box-flip" id="boxFlip">
                 <div class="box-flip-inner">
                     <div class="box-face box-front">
-                        <img src="turtle_box_closed.jpeg" alt="Turtle Watch Verpackung geschlossen">
+                        <img src="solar_box_zu.jpeg" alt="Solar Watch Verpackung geschlossen">
                         <p class="box-label" data-i18n="box-label-front">Verpackung geschlossen</p>
                     </div>
                     <div class="box-face box-back">
-                        <img src="turtle_box_open.jpeg" alt="Turtle Watch Verpackung geöffnet">
+                        <img src="solar_box_auf.jpeg" alt="Solar Watch Verpackung geöffnet">
                         <p class="box-label" data-i18n="box-label-back">Verpackung geöffnet</p>
                     </div>
                 </div>
@@ -898,7 +812,7 @@
                 <div class="feature-stat">100%</div>
                 <div class="feature-stat-sub" data-i18n="pack-sub">Premium-Verpackung</div>
                 <h3 data-i18n="pack-h3">Unboxing, das bleibt.</h3>
-                <p data-i18n="pack-p">Die Harrison Turtle Watch kommt in einer hochwertigen Box in Rifle Green – designed für den ersten Eindruck und gebaut zum Aufbewahren. 100 % nachhaltige Materialien, plastikfrei und vollständig recycelbar.</p>
+                <p data-i18n="pack-p">Die Harrison Solar Watch kommt in einer hochwertigen Box – designed für den ersten Eindruck und gebaut zum Aufbewahren. 100 % nachhaltige Materialien, plastikfrei und vollständig recycelbar.</p>
                 <button class="box-toggle-btn" id="boxToggleBtn" data-i18n="box-open">Box öffnen ↗</button>
             </div>
         </div>
@@ -909,7 +823,7 @@
         <div class="section-header reveal">
             <span class="section-eyebrow" data-i18n="qual-eyebrow">Qualität</span>
             <h2 class="section-title" data-i18n="qual-title">Handwerk.<br>Das bleibt.</h2>
-            <p class="section-intro" data-i18n="qual-intro">Hinter jedem Detail der Harrison Turtle Watch steckt ein Versprechen: Qualität, die nicht kleiner wird, je länger man hinschaut.</p>
+            <p class="section-intro" data-i18n="qual-intro">Hinter jedem Detail der Harrison Solar Watch steckt ein Versprechen: Qualität, die nicht kleiner wird, je länger man hinschaut.</p>
         </div>
         <div class="feature-grid">
             <div class="feature-card reveal">
@@ -917,14 +831,14 @@
                 <div class="feature-stat" style="font-size:3rem;">100%</div>
                 <div class="feature-stat-sub" data-i18n="qual1-sub">Ökostrom</div>
                 <h3 data-i18n="qual1-h3">Gefertigt mit reiner Energie.</h3>
-                <p data-i18n="qual1-p">Jede Harrison Turtle Watch wird ausschließlich mit 100 % erneuerbarem Ökostrom produziert. Von der ersten Schraube bis zur fertigen Uhr – CO₂-neutral in der Herstellung.</p>
+                <p data-i18n="qual1-p">Jede Harrison Solar Watch wird ausschließlich mit 100 % erneuerbarem Ökostrom produziert. Von der ersten Schraube bis zur fertigen Uhr – CO₂-neutral in der Herstellung.</p>
             </div>
             <div class="feature-card reveal">
-                <div class="card-icon">🐢</div>
-                <div class="feature-stat" style="font-size:3rem;">1:1</div>
-                <div class="feature-stat-sub" data-i18n="qual2-sub">Turtle Rescue</div>
-                <h3 data-i18n="qual2-h3">Eine Uhr. Eine Schildkröte.</h3>
-                <p data-i18n="qual2-p">Jede verkaufte Harrison Turtle Watch rettet eine Meeresschildkröte. Direkt, messbar und in Partnerschaft mit anerkannten Naturschutzorganisationen.</p>
+                <div class="card-icon">🌱</div>
+                <div class="feature-stat" style="font-size:3rem;">0 g</div>
+                <div class="feature-stat-sub" data-i18n="qual2-sub">CO₂ im Betrieb</div>
+                <h3 data-i18n="qual2-h3">Sauber. Kostenlos. Für immer.</h3>
+                <p data-i18n="qual2-p">Solar bedeutet: kein Ladekabel, kein Strom aus der Steckdose, keine laufenden Kosten. Reine Energie, direkt von der Sonne.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="card-icon">🛡️</div>
@@ -940,17 +854,17 @@
     <section id="specs" class="specs-section">
         <div class="specs-container">
             <div class="specs-text reveal">
-                <h3 data-i18n="specs-h3">Titan. Rifle Green.<br>Kein Kompromiss.</h3>
-                <p data-i18n="specs-p">Das Gehäuse aus Luftfahrt-Titan (Grade 5) mit kratzfestem Saphirglas, GPS und dem charakteristischen Rifle-Green-Finish – und für jede Uhr rettet Harrison Corp. eine Meeresschildkröte.</p>
-                <button class="btn-specs open-cart-btn" data-i18n="specs-btn">Für 162,50 € sichern</button>
+                <h3 data-i18n="specs-h3">Solar. Titan.<br>Kein Kompromiss.</h3>
+                <p data-i18n="specs-p">Das Gehäuse aus Luftfahrt-Titan (Grade 5) mit kratzfestem Saphirglas, Solarzellen der neuesten Generation und GPS – unabhängig von Kabeln und Steckdosen.</p>
+                <button class="btn-specs open-cart-btn" data-i18n="specs-btn">Für 175 € sichern</button>
             </div>
             <div class="reveal">
                 <ul class="spec-list">
                     <li><span data-i18n="sl-material">Material</span><strong data-i18n="sv-material">Titan (Grade 5)</strong></li>
                     <li><span data-i18n="sl-display">Display</span><strong data-i18n="sv-display">Kratzfestes Saphirglas</strong></li>
-                    <li><span data-i18n="sl-color">Farbe</span><strong data-i18n="sv-color">Rifle Green (#414833)</strong></li>
-                    <li><span data-i18n="sl-campaign">Kampagne</span><strong data-i18n="sv-campaign">1 Uhr = 1 Schildkröte</strong></li>
-                    <li><span data-i18n="sl-battery">Akku</span><strong data-i18n="sv-battery">Lithium-Ion</strong></li>
+                    <li><span data-i18n="sl-energy">Energiequelle</span><strong data-i18n="sv-energy">Solar + Lithium-Backup</strong></li>
+                    <li><span data-i18n="sl-charge">Ladezeit (Sonne)</span><strong data-i18n="sv-charge">ca. 1 Stunde (voll)</strong></li>
+                    <li><span data-i18n="sl-battery">Akku (Energiesparmodus)</span><strong data-i18n="sv-battery">Bis zu 6 Monate</strong></li>
                     <li><span data-i18n="sl-water">Wasserdichtheit</span><strong data-i18n="sv-water">100 m (10 ATM)</strong></li>
                     <li><span data-i18n="sl-nav">Navigation</span><strong data-i18n="sv-nav">GPS + GLONASS</strong></li>
                     <li><span data-i18n="sl-network">Netzwerk</span><strong data-i18n="sv-network">LTE, WLAN, Bluetooth 5.3</strong></li>
@@ -963,27 +877,33 @@
     <section id="pledge" class="pledge-section reveal">
         <div class="pledge-content">
             <div class="pledge-icon">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ec044" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
-                    <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
-                    <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                 </svg>
             </div>
-            <h2 data-i18n="pledge-h2">Jede Uhr.<br>Eine Schildkröte.</h2>
-            <p data-i18n="pledge-p1">Für jede verkaufte Harrison Turtle Watch rettet Harrison Corp. in Partnerschaft mit Meeresschutzorganisationen eine Meeresschildkröte – von der Aufzucht bis zur Auswilderung.</p>
-            <p data-i18n="pledge-p2">Rifle Green. Titan. Saphirglas. Und ein Versprechen, das tiefer reicht als das Meer.</p>
+            <h2 data-i18n="pledge-h2">Unsere Energie.<br>Dein Versprechen.</h2>
+            <p data-i18n="pledge-p1">Sollte deine Harrison Solar Watch innerhalb der ersten 3 Jahre einen technischen Defekt aufweisen, erhältst du sofort ein Neugerät – kostenlos, weltweit, ohne Diskussion.</p>
+            <p data-i18n="pledge-p2">Solar. Titan. Saphirglas. Und ein Service, der hält, was die Uhr verspricht.</p>
             <div class="pledge-badges">
-                <span class="pledge-badge" data-i18n="pledge-b1">🐢 Turtle Rescue</span>
-                <span class="pledge-badge" data-i18n="pledge-b2">🌊 Meeresschutz</span>
+                <span class="pledge-badge" data-i18n="pledge-b1">☀️ Solarantrieb</span>
+                <span class="pledge-badge" data-i18n="pledge-b2">🌱 0 g CO₂ im Betrieb</span>
                 <span class="pledge-badge" data-i18n="pledge-b3">🛡️ 3 Jahre Garantie</span>
-                <span class="pledge-badge" data-i18n="pledge-b4">♻️ CO₂-neutral</span>
+                <span class="pledge-badge" data-i18n="pledge-b4">⚡ Sofort-Austausch</span>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p data-i18n="footer-copy">© 2027 HARRISON CORP. Turtle Edition · GJ15</p>
+        <p data-i18n="footer-copy">© 2026 HARRISON CORP. Solar Edition · GJ14</p>
         <div class="footer-links">
             <a href="#" data-i18n="footer-l1">Impressum</a>
             <a href="#" data-i18n="footer-l2">Datenschutz</a>
@@ -992,121 +912,127 @@
     </footer>
 
     <script>
+        // ─────────────────────────────────────────────
+        // TRANSLATIONS
+        // ─────────────────────────────────────────────
         const t = {
             de: {
                 'nav-features':'Features','nav-packaging':'Verpackung','nav-quality':'Qualität',
-                'nav-specs':'Technik','nav-pledge':'Nachhaltigkeit','nav-employer':'Marketing','nav-buy':'Kaufen',
-                'cart-title':'Warenkorb','cart-details':'Gehäuse: Titan · Rifle Green',
-                'cart-note':'🐢 Jede Uhr rettet eine Schildkröte – direkt und messbar.',
+                'nav-specs':'Technik','nav-pledge':'Nachhaltigkeit','nav-employer':'Arbeitgeber','nav-buy':'Kaufen',
+                'cart-title':'Warenkorb','cart-details':'Gehäuse: Titan · Solarbetrieben',
+                'cart-note':'☀️ Solarbetrieben – unbegrenzte Energie aus Tageslicht.',
                 'cart-total-label':'Gesamt','cart-checkout':'Zur Kasse gehen',
                 'cart-small':'Inkl. MwSt. Kostenloser Expressversand.',
-                'hero-eyebrow':'Harrison Turtle Edition',
-                'hero-h1':'Eine Uhr.<br><span>Eine Schildkröte.</span>',
-                'hero-p':'Die Harrison Turtle Watch – für jede verkaufte Uhr rettet Harrison Corp. eine Meeresschildkröte. Titan-Gehäuse, Saphirglas, GPS. Rifle Green Edition.',
+                'hero-eyebrow':'Harrison Solar Edition',
+                'hero-h1':'Geladen von der<br><span>Sonne.</span>',
+                'hero-p':'Die Harrison Solar Watch läuft endlos – gespeist allein durch Tageslicht. Titan-Gehäuse, Saphirglas, GPS. Keine Kabel. Kein Limit.',
                 'hero-btn':'In den Warenkorb',
-                'tick1':'1 Uhr = 1 Schildkröte','tick2':'Titan Grade 5',
-                'tick3':'10 ATM Wasserdicht',                'tick5':'3 Jahre Garantie','tick6':'Kratzfestes Saphirglas','tick7':'Rifle Green Edition',
-                'feat-eyebrow':'Features','feat-title':'Titan. Rifle Green.<br>Ohne Kompromiss.',
-                'feat-intro':'Die Harrison Turtle Watch vereint zeitloses Design mit echtem Umweltengagement. Rifle Green. Titan. Und eine Schildkröte mehr.',
-                'feat1-sub':'Turtle Rescue','feat1-h3':'Jede Uhr rettet eine.',
-                'feat1-p':'Für jede verkaufte Harrison Turtle Watch rettet Harrison Corp. in Partnerschaft mit Meeresschutzorganisationen eine Meeresschildkröte – messbar und direkt.',
+                'tick1':'Solar-Ladezeit: 1 Stunde','tick2':'6 Monate Akku im Energiesparmodus',
+                'tick3':'Titan Grade 5','tick4':'10 ATM Wasserdicht','tick5':'GPS + GLONASS',
+                'tick6':'3 Jahre Garantie','tick7':'Kratzfestes Saphirglas',
+                'feat-eyebrow':'Features','feat-title':'Solar. Titan.<br>Ohne Kompromiss.',
+                'feat-intro':'Die Harrison Solar Watch vereint endlose Solarenergie mit dem robusten Erbe der Harrison-Linie.',
+                'feat1-sub':'Solarantrieb','feat1-h3':'Endlos Energie.',
+                'feat1-p':'Ein einziger Sonnentag reicht, um die Solar Watch vollständig aufzuladen. Im Energiesparmodus hält sie bis zu 6 Monate – auch ohne direktes Licht.',
                 'feat2-sub':'Multi-Satellit','feat2-h3':'Immer verbunden.',
-                'feat2-p':'GPS und GLONASS gleichzeitig. Präzise Navigation, ob in der Stadt oder in der Natur – überall auf der Welt einsatzbereit.',
+                'feat2-p':'GPS und GLONASS gleichzeitig. Präzise Navigation, ob in der Stadt oder in der Natur – gespeist durch reine Sonnenenergie.',
                 'feat3-sub':'Sprachen','feat3-h3':'Weltweit zu Hause.',
-                'feat3-p':'Die Harrison Turtle Watch spricht über 20 Sprachen – vollständig lokalisierte Oberfläche, Sprachbefehle und Benachrichtigungen. Überall sofort einsatzbereit.',
-                'pack-eyebrow':'Verpackung','pack-title':'Premium-Unboxing.<br>Grün verpackt.',
-                'pack-intro':'Nachhaltige Harrison-Verpackung in Rifle Green – plastikfrei, designed zum Aufbewahren.',
+                'feat3-p':'Die Harrison Solar Watch spricht über 20 Sprachen – vollständig lokalisierte Oberfläche, Sprachbefehle und Benachrichtigungen. Überall sofort einsatzbereit.',
+                'pack-eyebrow':'Verpackung','pack-title':'Premium-Unboxing.<br>Sonnig verpackt.',
+                'pack-intro':'Hochwertige Harrison-Verpackung – nachhaltig, plastikfrei, designed zum Aufbewahren.',
                 'pack-sub':'Premium-Verpackung','pack-h3':'Unboxing, das bleibt.',
-                'pack-p':'Die Harrison Turtle Watch kommt in einer hochwertigen Box in Rifle Green – designed für den ersten Eindruck und gebaut zum Aufbewahren. 100 % nachhaltige Materialien, plastikfrei und vollständig recycelbar.',
+                'pack-p':'Die Harrison Solar Watch kommt in einer hochwertigen Box – designed für den ersten Eindruck und gebaut zum Aufbewahren. 100 % nachhaltige Materialien, plastikfrei und vollständig recycelbar.',
                 'box-open':'Box öffnen ↗','box-close':'Box schließen ↙',
                 'box-label-front':'Verpackung geschlossen','box-label-back':'Verpackung geöffnet',
                 'qual-eyebrow':'Qualität','qual-title':'Handwerk.<br>Das bleibt.',
-                'qual-intro':'Hinter jedem Detail der Harrison Turtle Watch steckt ein Versprechen: Qualität, die nicht kleiner wird, je länger man hinschaut.',
+                'qual-intro':'Hinter jedem Detail der Harrison Solar Watch steckt ein Versprechen: Qualität, die nicht kleiner wird, je länger man hinschaut.',
                 'qual1-sub':'Ökostrom','qual1-h3':'Gefertigt mit reiner Energie.',
-                'qual1-p':'Jede Harrison Turtle Watch wird ausschließlich mit 100 % erneuerbarem Ökostrom produziert. Von der ersten Schraube bis zur fertigen Uhr – CO₂-neutral in der Herstellung.',
-                'qual2-sub':'Turtle Rescue','qual2-h3':'Eine Uhr. Eine Schildkröte.',
-                'qual2-p':'Jede verkaufte Harrison Turtle Watch rettet eine Meeresschildkröte. Direkt, messbar und in Partnerschaft mit anerkannten Naturschutzorganisationen.',
+                'qual1-p':'Jede Harrison Solar Watch wird ausschließlich mit 100 % erneuerbarem Ökostrom produziert. Von der ersten Schraube bis zur fertigen Uhr – CO₂-neutral in der Herstellung.',
+                'qual2-sub':'CO₂ im Betrieb','qual2-h3':'Sauber. Kostenlos. Für immer.',
+                'qual2-p':'Solar bedeutet: kein Ladekabel, kein Strom aus der Steckdose, keine laufenden Kosten. Reine Energie, direkt von der Sonne.',
                 'qual3-sub':'Full-Service','qual3-h3':'Service, der mitgeht.',
                 'qual3-p':'3 Jahre umfassende Garantie. Sofortiger Austausch bei Defekt. Unser Service-Team ist für dich da – weltweit, ohne Wenn und Aber.',
-                'specs-h3':'Titan. Rifle Green.<br>Kein Kompromiss.',
-                'specs-p':'Das Gehäuse aus Luftfahrt-Titan (Grade 5) mit kratzfestem Saphirglas, GPS und dem charakteristischen Rifle-Green-Finish – und für jede Uhr rettet Harrison Corp. eine Meeresschildkröte.',
-                'specs-btn':'Für 162,50 € sichern',
+                'specs-h3':'Solar. Titan.<br>Kein Kompromiss.',
+                'specs-p':'Das Gehäuse aus Luftfahrt-Titan (Grade 5) mit kratzfestem Saphirglas, Solarzellen der neuesten Generation und GPS – unabhängig von Kabeln und Steckdosen.',
+                'specs-btn':'Für 175,00 € sichern',
                 'sl-material':'Material','sv-material':'Titan (Grade 5)',
                 'sl-display':'Display','sv-display':'Kratzfestes Saphirglas',
-                'sl-color':'Farbe','sv-color':'Rifle Green (#414833)',
-                'sl-campaign':'Kampagne','sv-campaign':'1 Uhr = 1 Schildkröte',
-                'sl-battery':'Akku','sv-battery':'Lithium-Ion',
+                'sl-energy':'Energiequelle','sv-energy':'Solar + Lithium-Backup',
+                'sl-charge':'Ladezeit (Sonne)','sv-charge':'ca. 1 Stunde (voll)',
+                'sl-battery':'Akku (Energiesparmodus)','sv-battery':'Bis zu 6 Monate',
                 'sl-water':'Wasserdichtheit','sv-water':'100 m (10 ATM)',
                 'sl-nav':'Navigation','sv-nav':'GPS + GLONASS',
                 'sl-network':'Netzwerk','sv-network':'LTE, WLAN, Bluetooth 5.3',
-                'pledge-h2':'Jede Uhr.<br>Eine Schildkröte.',
-                'pledge-p1':'Für jede verkaufte Harrison Turtle Watch rettet Harrison Corp. in Partnerschaft mit Meeresschutzorganisationen eine Meeresschildkröte – von der Aufzucht bis zur Auswilderung.',
-                'pledge-p2':'Rifle Green. Titan. Saphirglas. Und ein Versprechen, das tiefer reicht als das Meer.',
-                'pledge-b1':'🐢 Turtle Rescue','pledge-b2':'🌊 Meeresschutz',
-                'pledge-b3':'🛡️ 3 Jahre Garantie','pledge-b4':'♻️ CO₂-neutral',
-                'footer-copy':'© 2027 HARRISON CORP. Turtle Edition · GJ15',
+                'pledge-h2':'Unsere Energie.<br>Dein Versprechen.',
+                'pledge-p1':'Sollte deine Harrison Solar Watch innerhalb der ersten 3 Jahre einen technischen Defekt aufweisen, erhältst du sofort ein Neugerät – kostenlos, weltweit, ohne Diskussion.',
+                'pledge-p2':'Solar. Titan. Saphirglas. Und ein Service, der hält, was die Uhr verspricht.',
+                'pledge-b1':'☀️ Solarantrieb','pledge-b2':'🌱 0 g CO₂ im Betrieb',
+                'pledge-b3':'🛡️ 3 Jahre Garantie','pledge-b4':'⚡ Sofort-Austausch',
+                'footer-copy':'© 2026 HARRISON CORP. Solar Edition · GJ14',
                 'footer-l1':'Impressum','footer-l2':'Datenschutz','footer-l3':'AGB',
-                'price':'162,50 €',
-                'cursor-sign':'RETTE MICH'
+                'price':'175,00 €'
             },
             en: {
                 'nav-features':'Features','nav-packaging':'Packaging','nav-quality':'Quality',
-                'nav-specs':'Technology','nav-pledge':'Sustainability','nav-employer':'Marketing','nav-buy':'Buy',
-                'cart-title':'Cart','cart-details':'Case: Titanium · Rifle Green',
-                'cart-note':'🐢 Every watch rescues a sea turtle – directly and measurably.',
+                'nav-specs':'Technology','nav-pledge':'Sustainability','nav-employer':'Employer','nav-buy':'Buy',
+                'cart-title':'Cart','cart-details':'Case: Titanium · Solar-Powered',
+                'cart-note':'☀️ Solar-powered – unlimited energy from daylight.',
                 'cart-total-label':'Total','cart-checkout':'Proceed to Checkout',
                 'cart-small':'Incl. VAT. Free express shipping.',
-                'hero-eyebrow':'Harrison Turtle Edition',
-                'hero-h1':'One Watch.<br><span>One Turtle.</span>',
-                'hero-p':'The Harrison Turtle Watch – for every watch sold, Harrison Corp. rescues a sea turtle. Titanium case, sapphire glass, GPS. Rifle Green Edition.',
+                'hero-eyebrow':'Harrison Solar Edition',
+                'hero-h1':'Charged<br>by the <span>Sun.</span>',
+                'hero-p':'The Harrison Solar Watch runs endlessly – powered solely by daylight. Titanium case, sapphire glass, GPS. No cables. No limits.',
                 'hero-btn':'Add to Cart',
-                'tick1':'1 Watch = 1 Turtle','tick2':'Titanium Grade 5',
-                'tick3':'10 ATM Water Resistant',                'tick5':'3-Year Warranty','tick6':'Scratch-Resistant Sapphire Glass','tick7':'Rifle Green Edition',
-                'feat-eyebrow':'Features','feat-title':'Titanium. Rifle Green.<br>No Compromise.',
-                'feat-intro':'The Harrison Turtle Watch combines timeless design with real environmental commitment. Rifle Green. Titanium. And one more turtle.',
-                'feat1-sub':'Turtle Rescue','feat1-h3':'Every Watch Rescues One.',
-                'feat1-p':'For every Harrison Turtle Watch sold, Harrison Corp. rescues a sea turtle in partnership with marine conservation organisations – measurable and direct.',
+                'tick1':'Solar Charge Time: 1 Hour','tick2':'6-Month Battery in Power-Save Mode',
+                'tick3':'Titanium Grade 5','tick4':'10 ATM Water Resistant','tick5':'GPS + GLONASS',
+                'tick6':'3-Year Warranty','tick7':'Scratch-Resistant Sapphire Glass',
+                'feat-eyebrow':'Features','feat-title':'Solar. Titanium.<br>No Compromise.',
+                'feat-intro':'The Harrison Solar Watch combines endless solar energy with the rugged heritage of the Harrison line.',
+                'feat1-sub':'Solar Power','feat1-h3':'Endless Energy.',
+                'feat1-p':'A single sunny day is enough to fully charge the Solar Watch. In power-save mode it lasts up to 6 months – even without direct sunlight.',
                 'feat2-sub':'Multi-Satellite','feat2-h3':'Always Connected.',
-                'feat2-p':'GPS and GLONASS simultaneously. Precise navigation in the city or in the wild – ready to use anywhere in the world.',
+                'feat2-p':'GPS and GLONASS simultaneously. Precise navigation, in the city or in the wilderness – powered by pure solar energy.',
                 'feat3-sub':'Languages','feat3-h3':'At Home Worldwide.',
-                'feat3-p':'The Harrison Turtle Watch speaks over 20 languages – fully localised interface, voice commands and notifications. Ready to use everywhere, instantly.',
-                'pack-eyebrow':'Packaging','pack-title':'Premium Unboxing.<br>Packaged in Green.',
-                'pack-intro':'Sustainable Harrison packaging in Rifle Green – plastic-free, designed to keep.',
+                'feat3-p':'The Harrison Solar Watch speaks over 20 languages – fully localised interface, voice commands and notifications. Ready to use everywhere, instantly.',
+                'pack-eyebrow':'Packaging','pack-title':'Premium Unboxing.<br>Packaged with Sunshine.',
+                'pack-intro':'Premium Harrison packaging – sustainable, plastic-free, designed to keep.',
                 'pack-sub':'Premium Packaging','pack-h3':'An Unboxing to Remember.',
-                'pack-p':'The Harrison Turtle Watch arrives in a premium Rifle Green box – designed for the first impression and built to keep. 100% sustainable materials, plastic-free and fully recyclable.',
+                'pack-p':'The Harrison Solar Watch arrives in a premium box – designed for the first impression and built to keep. 100% sustainable materials, plastic-free and fully recyclable.',
                 'box-open':'Open Box ↗','box-close':'Close Box ↙',
                 'box-label-front':'Box Closed','box-label-back':'Box Open',
                 'qual-eyebrow':'Quality','qual-title':'Craftsmanship.<br>That Lasts.',
-                'qual-intro':'Behind every detail of the Harrison Turtle Watch lies a promise: quality that only grows the longer you look.',
+                'qual-intro':'Behind every detail of the Harrison Solar Watch lies a promise: quality that only grows the longer you look.',
                 'qual1-sub':'Green Energy','qual1-h3':'Made with Pure Energy.',
-                'qual1-p':'Every Harrison Turtle Watch is produced exclusively with 100% renewable green energy. From the first screw to the finished watch – carbon-neutral in production.',
-                'qual2-sub':'Turtle Rescue','qual2-h3':'One Watch. One Turtle.',
-                'qual2-p':'Every Harrison Turtle Watch sold rescues a sea turtle. Directly, measurably, and in partnership with recognised conservation organisations.',
+                'qual1-p':'Every Harrison Solar Watch is produced exclusively with 100% renewable green energy. From the first screw to the finished watch – carbon-neutral in production.',
+                'qual2-sub':'CO₂ in Operation','qual2-h3':'Clean. Free. Forever.',
+                'qual2-p':'Solar means: no charging cable, no power from the socket, no running costs. Pure energy, directly from the sun.',
                 'qual3-sub':'Full Service','qual3-h3':'Service That Goes with You.',
                 'qual3-p':'3-year comprehensive warranty. Immediate replacement in case of defect. Our service team is there for you – worldwide, no ifs or buts.',
-                'specs-h3':'Titanium. Rifle Green.<br>No Compromise.',
-                'specs-p':'Aerospace titanium (Grade 5) case with scratch-resistant sapphire glass, GPS and a distinctive Rifle Green finish – and for every watch sold, Harrison Corp. rescues a sea turtle.',
-                'specs-btn':'Get it for $147.50',
+                'specs-h3':'Solar. Titanium.<br>No Compromise.',
+                'specs-p':'The aerospace titanium (Grade 5) case with scratch-resistant sapphire glass, next-generation solar cells and GPS – independent of cables and sockets.',
+                'specs-btn':'Get it for $192.50',
                 'sl-material':'Material','sv-material':'Titanium (Grade 5)',
                 'sl-display':'Display','sv-display':'Scratch-Resistant Sapphire Glass',
-                'sl-color':'Colour','sv-color':'Rifle Green (#414833)',
-                'sl-campaign':'Campaign','sv-campaign':'1 Watch = 1 Turtle',
-                'sl-battery':'Battery','sv-battery':'Lithium-Ion',
+                'sl-energy':'Energy Source','sv-energy':'Solar + Lithium Backup',
+                'sl-charge':'Charge Time (Sun)','sv-charge':'approx. 1 Hour (full)',
+                'sl-battery':'Battery (Power-Save)','sv-battery':'Up to 6 Months',
                 'sl-water':'Water Resistance','sv-water':'100 m (10 ATM)',
                 'sl-nav':'Navigation','sv-nav':'GPS + GLONASS',
                 'sl-network':'Network','sv-network':'LTE, Wi-Fi, Bluetooth 5.3',
-                'pledge-h2':'Every Watch.<br>One Turtle.',
-                'pledge-p1':'For every Harrison Turtle Watch sold, Harrison Corp. rescues a sea turtle in partnership with marine conservation organisations – from breeding to release.',
-                'pledge-p2':'Rifle Green. Titanium. Sapphire Glass. And a promise that runs deeper than the ocean.',
-                'pledge-b1':'🐢 Turtle Rescue','pledge-b2':'🌊 Marine Protection',
-                'pledge-b3':'🛡️ 3-Year Warranty','pledge-b4':'♻️ Carbon-Neutral',
-                'footer-copy':'© 2027 HARRISON CORP. Turtle Edition · FY15',
+                'pledge-h2':'Our Energy.<br>Your Promise.',
+                'pledge-p1':'Should your Harrison Solar Watch develop a technical fault within the first 3 years, you receive a replacement immediately – free of charge, worldwide, no questions asked.',
+                'pledge-p2':'Solar. Titanium. Sapphire Glass. And service that delivers on what the watch promises.',
+                'pledge-b1':'☀️ Solar Power','pledge-b2':'🌱 0 g CO₂ in Operation',
+                'pledge-b3':'🛡️ 3-Year Warranty','pledge-b4':'⚡ Instant Replacement',
+                'footer-copy':'© 2026 HARRISON CORP. Solar Edition · FY14',
                 'footer-l1':'Imprint','footer-l2':'Privacy Policy','footer-l3':'Terms',
-                'price':'$147.50',
-                'cursor-sign':'SAVE ME'
+                'price':'$192.50'
             }
         };
 
+        // ─────────────────────────────────────────────
+        // LANGUAGE SYSTEM
+        // ─────────────────────────────────────────────
         let currentLang = localStorage.getItem('harrison_lang') || null;
         let isBoxFlipped = false;
 
@@ -1114,12 +1040,19 @@
             currentLang = lang;
             localStorage.setItem('harrison_lang', lang);
             document.documentElement.lang = lang;
+
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
+                if (t[lang][key] !== undefined) {
+                    el.innerHTML = t[lang][key];
+                }
             });
+
+            // Box toggle button: respect current flip state
             const boxBtn = document.getElementById('boxToggleBtn');
             boxBtn.innerHTML = isBoxFlipped ? t[lang]['box-close'] : t[lang]['box-open'];
+
+            // Navbar lang toggle: show opposite flag
             document.getElementById('langToggleBtn').textContent = lang === 'de' ? '🇬🇧' : '🇩🇪';
         }
 
@@ -1128,13 +1061,19 @@
             applyLang(lang);
         }
 
-        function toggleLang() { applyLang(currentLang === 'de' ? 'en' : 'de'); }
+        function toggleLang() {
+            applyLang(currentLang === 'de' ? 'en' : 'de');
+        }
 
+        // Show modal only if no stored preference
         if (currentLang) {
             document.getElementById('langModal').classList.add('hidden');
             applyLang(currentLang);
         }
 
+        // ─────────────────────────────────────────────
+        // WARENKORB
+        // ─────────────────────────────────────────────
         const cartSidebar  = document.getElementById('cartSidebar');
         const cartOverlay  = document.getElementById('cartOverlay');
         const openCartBtns = document.querySelectorAll('.open-cart-btn');
@@ -1147,8 +1086,12 @@
         closeCartBtn.addEventListener('click', closeCart);
         cartOverlay.addEventListener('click', closeCart);
 
+        // ─────────────────────────────────────────────
+        // HAMBURGER
+        // ─────────────────────────────────────────────
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileNav    = document.getElementById('mobileNav');
+
         hamburgerBtn.addEventListener('click', () => {
             hamburgerBtn.classList.toggle('open');
             mobileNav.classList.toggle('open');
@@ -1160,6 +1103,9 @@
             });
         });
 
+        // ─────────────────────────────────────────────
+        // SCROLL REVEAL
+        // ─────────────────────────────────────────────
         function reveal() {
             document.querySelectorAll('.reveal').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('active');
@@ -1168,95 +1114,21 @@
         window.addEventListener('scroll', reveal);
         reveal();
 
+        // ─────────────────────────────────────────────
+        // BOX FLIP
+        // ─────────────────────────────────────────────
         const boxFlip      = document.getElementById('boxFlip');
         const boxToggleBtn = document.getElementById('boxToggleBtn');
+
         function toggleBox() {
             isBoxFlipped = !isBoxFlipped;
             boxFlip.classList.toggle('flipped');
             const lang = currentLang || 'de';
             boxToggleBtn.innerHTML = isBoxFlipped ? t[lang]['box-close'] : t[lang]['box-open'];
         }
+
         boxFlip.addEventListener('click', toggleBox);
         boxToggleBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleBox(); });
-
-        // turtle parade: ~1s per 10mm physical screen distance
-        // 96 CSS px = 1 inch = 25.4 mm  →  px * 25.4/96 = mm
-        const parade    = document.getElementById('turtleParade');
-        const tShells   = document.querySelectorAll('.t-shell');
-        const speedMult = [1.00, 1.14, 0.94, 1.18, 1.06];
-
-        function initTurtles() {
-            const travelPx  = window.innerWidth + 240;          // total px the turtle crosses
-            const travelMm  = travelPx * 25.4 / 96;            // convert to physical mm
-            const baseSec   = travelMm / 10;                    // 10 mm/s target
-            const delayStep = baseSec * 0.18;                   // ~18% viewport gap between turtles
-            tShells.forEach((shell, i) => {
-                shell.style.setProperty('--s', (baseSec * speedMult[i]).toFixed(2) + 's');
-                shell.style.setProperty('--d', (delayStep * i).toFixed(2) + 's');
-            });
-        }
-        initTurtles();
-
-        new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) parade.classList.add('active');
-        }, { threshold: 0.25 }).observe(parade);
-
-        // Cursor-following turtle
-        const ct = document.getElementById('cursor-turtle');
-        let tx = -300, ty = -300;
-        let cx = -300, cy = -300;
-        const LERP = 0.10;
-        window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
-        window.addEventListener('touchstart', e => {
-            tx = e.touches[0].clientX; ty = e.touches[0].clientY;
-        }, { passive: true });
-        window.addEventListener('touchmove', e => {
-            tx = e.touches[0].clientX; ty = e.touches[0].clientY;
-        }, { passive: true });
-        (function loop() {
-            cx += (tx - cx) * LERP;
-            cy += (ty - cy) * LERP;
-            ct.style.transform = `translate(${cx - 68}px, ${cy - 99}px)`;
-            requestAnimationFrame(loop);
-        })();
     </script>
-
-    <div id="cursor-turtle">
-        <svg viewBox="0 0 90 140" xmlns="http://www.w3.org/2000/svg">
-            <!-- Sign board -->
-            <rect x="5" y="3" width="80" height="38" fill="white" stroke="#1a1a1a" stroke-width="2" rx="3"/>
-            <text x="45" y="24" text-anchor="middle" dominant-baseline="middle"
-                  font-family="'Comic Sans MS','Comic Sans',cursive"
-                  font-size="11" font-weight="bold" fill="#cc0000"
-                  data-i18n="cursor-sign">RETTE MICH</text>
-            <!-- Stick -->
-            <rect x="41" y="41" width="5" height="28" fill="#7a5c1e" rx="2"/>
-            <!-- Shadow -->
-            <ellipse cx="38" cy="138" rx="21" ry="2" fill="#2d3a18" opacity="0.1"/>
-            <!-- Back leg -->
-            <ellipse cx="23" cy="113" rx="9" ry="3.5" fill="#6b8c3f" class="ct-leg-b"/>
-            <!-- Body -->
-            <ellipse cx="36" cy="104" rx="21" ry="12" fill="#6b8c3f"/>
-            <ellipse cx="34" cy="95" rx="19" ry="14" fill="#414833"/>
-            <!-- Shell pattern -->
-            <ellipse cx="34" cy="93" rx="10" ry="7" fill="none" stroke="#596240" stroke-width="1.2" opacity="0.6"/>
-            <line x1="34" y1="81" x2="34" y2="107" stroke="#596240" stroke-width="1" opacity="0.4"/>
-            <line x1="15" y1="93" x2="53" y2="93" stroke="#596240" stroke-width="1" opacity="0.4"/>
-            <!-- Front left flipper raised to hold stick -->
-            <ellipse cx="44" cy="80" rx="3.5" ry="9" fill="#6b8c3f" transform="rotate(-80 44 80)" class="ct-leg-f"/>
-            <!-- Head -->
-            <circle cx="64" cy="93" r="12.5" fill="#7da244"/>
-            <!-- Blush -->
-            <circle cx="60" cy="97" r="4" fill="#f0a070" opacity="0.22"/>
-            <!-- Eye -->
-            <circle cx="68" cy="89" r="5" fill="white"/>
-            <circle cx="69" cy="88.5" r="3" fill="#1a2010"/>
-            <circle cx="70.5" cy="87.2" r="1.2" fill="white"/>
-            <!-- Smile -->
-            <path d="M60 99 Q64 103.5 68 99" stroke="#4a6828" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <!-- Back right leg -->
-            <ellipse cx="51" cy="113" rx="9" ry="3.5" fill="#6b8c3f" class="ct-leg-b"/>
-        </svg>
-    </div>
 </body>
 </html>
