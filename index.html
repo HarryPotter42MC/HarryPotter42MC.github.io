@@ -694,6 +694,30 @@
             animation: t-leg 0.55s ease-in-out infinite alternate;
         }
         .ct-leg-b { animation-direction: alternate-reverse; }
+
+        .nav-versions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-right: 16px;
+            padding-right: 16px;
+            border-right: 1px solid rgba(0,0,0,0.1);
+        }
+        .nav-versions a {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #999;
+            text-decoration: none;
+            padding: 2px 0;
+            transition: color 0.15s;
+        }
+        .nav-versions a:hover { color: var(--green-800); }
+        .nav-versions a.active {
+            color: var(--green-800);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
     </style>
 </head>
 <body>
@@ -721,6 +745,13 @@
 
     <!-- NAV -->
     <nav>
+        <div class="nav-versions">
+            <a href="v1/">V1</a>
+            <a href="v2/">V2</a>
+            <a href="v3/">V3</a>
+            <a href="v4/">V4</a>
+            <a href="./" class="active">V5</a>
+        </div>
         <div>
             <span class="logo-text">Harrison Corp.</span>
             <span class="logo-sub">Turtle Edition</span>
