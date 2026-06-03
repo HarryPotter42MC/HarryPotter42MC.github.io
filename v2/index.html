@@ -794,25 +794,7 @@
             .pledge-content h2 { font-size: 2.1rem; }
         }
 
-        .nav-versions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-right: 16px;
-            padding-right: 16px;
-            border-right: 1px solid rgba(0,0,0,0.1);
-        }
-        .nav-versions a {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: #999;
-            text-decoration: none;
-            padding: 2px 0;
-            transition: color 0.15s;
-        }
-        .nav-versions a:hover { color: var(--green-700); }
-        .nav-versions a.active {
+        .nav-links a.active {
             color: var(--green-700);
             text-decoration: underline;
             text-underline-offset: 3px;
@@ -823,18 +805,17 @@
 
     <!-- NAV -->
     <nav>
-        <div class="nav-versions">
-            <a href="../v1/">V1</a>
-            <a href="./" class="active">V2</a>
-            <a href="../v3/">V3</a>
-            <a href="../v4/">V4</a>
-            <a href="../">V5</a>
-        </div>
         <div>
             <span class="logo-text">Harrison Corp.</span>
             <span class="logo-eco">ECO Collection</span>
         </div>
         <div class="nav-links">
+            <a href="../v1/">V1</a>
+            <a href="./" class="active">V2</a>
+            <a href="../v3/">V3</a>
+            <a href="../v4/">V4</a>
+            <a href="../">V5</a>
+            <span class="nav-divider">|</span>
             <a href="#eco">Nachhaltigkeit</a>
             <a href="#specs">Technik</a>
             <a href="#pledge">Versprechen</a>

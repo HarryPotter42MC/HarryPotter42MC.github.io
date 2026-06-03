@@ -551,25 +551,7 @@
             .cart-sidebar { width: 100%; padding: 20px; }
         }
 
-        .nav-versions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-right: 16px;
-            padding-right: 16px;
-            border-right: 1px solid rgba(0,0,0,0.1);
-        }
-        .nav-versions a {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: #999;
-            text-decoration: none;
-            padding: 2px 0;
-            transition: color 0.15s;
-        }
-        .nav-versions a:hover { color: var(--accent-gold); }
-        .nav-versions a.active {
+        .nav-links a.active {
             color: var(--accent-gold);
             text-decoration: underline;
             text-underline-offset: 3px;
@@ -580,17 +562,16 @@
 
     <!-- NAVIGATION -->
     <nav>
-        <div class="nav-versions">
+        <div class="logo-container">
+            <span class="logo-text">HARRISON CORP.</span>
+        </div>
+        <div class="nav-links">
             <a href="./" class="active">V1</a>
             <a href="../v2/">V2</a>
             <a href="../v3/">V3</a>
             <a href="../v4/">V4</a>
             <a href="../">V5</a>
-        </div>
-        <div class="logo-container">
-            <span class="logo-text">HARRISON CORP.</span>
-        </div>
-        <div class="nav-links">
+            <span class="nav-divider">|</span>
             <a href="#safety">Sicherheit</a>
             <a href="#specs">Technik</a>
             <a href="#guarantee">Garantie</a>
